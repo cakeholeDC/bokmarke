@@ -1,0 +1,8 @@
+<h1>All Readers</h1>
+<%= button_to "New Reader", new_reader_path, method: "get" %>
+
+<ul>
+	<% @readers.each do |reader| %>
+		<li><%= link_to reader.username, reader_path(reader) %></li>
+	<% end %>
+</ul>

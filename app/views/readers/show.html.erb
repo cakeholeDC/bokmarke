@@ -1,0 +1,11 @@
+<h1><%= @reader.username %></h1>
+<%= button_to "Edit Reader", edit_reader_path(@reader), method: 'get' %>
+<%= button_to "Delete Reader", reader_path(@reader), method: 'delete' %>
+
+<h2>Real Name: <%= @reader.name %></h2>
+<p><%= @reader.bio %></p>
+
+<p>Favorite Book: Harry Potter</p>
+<p>Favorite Author: Stephen King</p>
+
+<p>Wishlist...</p>
