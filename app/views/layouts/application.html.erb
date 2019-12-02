@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bokmärke</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to "Home", home_path %> /
+      <%= link_to "Books", books_path %> /
+      <%= link_to "Authors", authors_path %> /
+      <%= link_to "Readers", readers_path %>
+    </nav>
+
+    <%= yield %>
+
+  </body>
+</html>
