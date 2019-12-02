@@ -5,18 +5,31 @@ class ReadersController < ApplicationController
 		@readers = Reader.all 
 	end
 
+	def show
+		@goal = Goal.new
+	end
+
 	def new
 		@reader = Reader.new
 	end
 
 	def create
-		@reader = Reader.create(reader_params)
-		redirect_to reader_path(@reader)
+		@reader = Reader.new(reader_params)
+		
+		if @reader.save
+			redirect_to reader_path(@reader)
+		else
+			render :new
+		end
 	end
 
 	def update
 		@reader.update(reader_params)
-		redirect_to reader_path(@reader)
+		if @reader.valid?
+			redirect_to reader_path(@reader)
+		else
+			render :edit
+		end
 	end
 
 	def destroy

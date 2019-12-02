@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :books, only: [:index, :show]
-  # resources :goals
+  resources :goals, only: [:index, :new, :create]
   resources :authors, only: [:index, :show]
   resources :readers
   get '/', to: 'application#home', as: 'home'

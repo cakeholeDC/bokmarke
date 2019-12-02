@@ -9,3 +9,18 @@
 <p>Favorite Author: Stephen King</p>
 
 <p>Wishlist...</p>
+
+<%= form_for @goal do |f| %>
+	<%= f.hidden_field :user_id, value: @reader.id %>
+	<div>
+		<%= f.label :book_id, "Book" %>
+		<%= f.collection_select :book_id, Book.all, :id, :title %>
+	</div>
+	<div>
+		<%= f.label "Already Read" %>
+		<%= f.radio_button :status, true %>
+		<%= f.label "Want to Read" %>
+		<%= f.radio_button :status, false %>
+	</div>
+	<%= f.submit "Add to Reading List" %>
+<% end %>
