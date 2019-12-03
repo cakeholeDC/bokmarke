@@ -28,19 +28,28 @@
 
 <% if @reader.goals.any? %>
 	<table>
-		<tr>
-			<th>Title</th>
-			<th>Author</th>
-			<th>Status</th>
-			<th>Date Updated</th>
-		</tr>
-	<%@reader.goals.each do |goal| %>
-	<tr>
-		<td><%= link_to goal.book.title, book_path(goal.book) %></td>
-		<td><%= link_to goal.author.name, author_path(goal.author) %></td>
-		<td><%= goal.check_if_true %></td>
-		<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
-	</tr>
-	<% end %>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Status</th>
+				<th>Date Updated</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%@reader.goals.each do |goal| %>
+			<tr>
+				<td><%= link_to goal.book.title, book_path(goal.book) %></td>
+				<td><%= link_to goal.author.name, author_path(goal.author) %></td>
+				<td><%= goal.check_if_true %></td>
+				<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
+		
+				<%#= button_to "Change Status", {action: update_status_path, :goal_id => goal.id}, method: "patch" %>
+					<%#= button_to "Delete Book", PATH, method: "delete" %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% end %>
 
