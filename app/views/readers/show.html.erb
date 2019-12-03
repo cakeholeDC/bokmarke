@@ -5,13 +5,12 @@
 <h2>Real Name: <%= @reader.name %></h2>
 <p><%= @reader.bio %></p>
 
-<p>Favorite Book: Harry Potter</p>
-<p>Favorite Author: Stephen King</p>
+<p>Favorite Book: <%= @reader.fav_book_by_id %></p>
+<p>Favorite Author: <%= @reader.fav_author_by_id%></p>
 
-<p>Wishlist...</p>
 
 <%= form_for @goal do |f| %>
-	<%= f.hidden_field :user_id, value: @reader.id %>
+	<%= f.hidden_field :reader_id, value: @reader.id.to_i %>
 	<div>
 		<%= f.label :book_id, "Book" %>
 		<%= f.collection_select :book_id, Book.all, :id, :title %>
@@ -24,3 +23,24 @@
 	</div>
 	<%= f.submit "Add to Reading List" %>
 <% end %>
+
+<h1>Books List: </h1>
+
+<% if @reader.goals.any? %>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Status</th>
+			<th>Date Updated</th>
+		</tr>
+	<%@reader.goals.each do |goal| %>
+	<tr>
+		<td><%= link_to goal.book.title, book_path(goal.book) %></td>
+		<td><%= link_to goal.author.name, author_path(goal.author) %></td>
+		<td><%= goal.check_if_true %></td>
+		<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
+	</tr>
+	<% end %>
+<% end %>
+

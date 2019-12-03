@@ -14,6 +14,7 @@ class ReadersController < ApplicationController
 	end
 
 	def create
+		
 		@reader = Reader.new(reader_params)
 		
 		if @reader.save

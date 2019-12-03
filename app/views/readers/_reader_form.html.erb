@@ -16,6 +16,13 @@
 		<%= f.text_area :bio %>
 	</div>
 	<div>
+		<%= f.label :fav_book %>
+		<%= f.collection_select :fav_book, Book.all, :id, :title %>
+	</div>
+	<div>
+		<%= f.label :fav_author %>
+		<%= f.collection_select	:fav_author, Author.all, :id, :name %>
+	<div>
 		<%= f.submit submit_text %>
 	</div>
 <% end %>
