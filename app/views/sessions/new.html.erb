@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+
+<% if flash[:error] %>
+	<div class="error-message"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_tag '/login' do %>
+	<%= label_tag :username %>
+	<%= text_field_tag :username %>
+	<%= label_tag :password %>
+	<%= password_field_tag :password %>
+	<%= submit_tag "Login" %>
+<% end %>
+
+
+<%= button_to "Create an Account", new_reader_path, method: 'get' %>
