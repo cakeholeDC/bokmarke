@@ -27,7 +27,9 @@ Author.destroy_all
 	reader = Reader.create(name: Faker::Name.name,
 							bio: Faker::Lorem.paragraph,
 							age: rand(5..80),
-							username: Faker::Internet.username)
+							username: Faker::Internet.username,
+							fav_book: book.id,
+							fav_author: author.id)
 
-	goal = Goal.create(reader_id: reader.id, book_id: book.id, status: Faker::Boolean.boolean)
+	goal = Goal.create(reader_id: reader.id, book_id: book.id, status: true)
 end

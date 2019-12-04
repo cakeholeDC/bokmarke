@@ -7,12 +7,18 @@ class GoalsController < ApplicationController
 	end
 
 	def update_status
-		@goal = Goal.find(params[:goal_id])
+		# byebug
+		@goal = Goal.find(params[:id])
 		@goal.toggle!(:status)
 		redirect_to reader_path(@goal.reader)
-
 	end
 
+	def destroy
+		@goal = Goal.find(params[:id])
+		reader = @goal.reader
+		@goal.destroy
+		redirect_to reader_path(reader)
+	end
 
 	private
 

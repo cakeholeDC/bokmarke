@@ -24,9 +24,9 @@
 	<%= f.submit "Add to Reading List" %>
 <% end %>
 
-<h1>Books List: </h1>
 
 <% if @reader.goals.any? %>
+	<h1>Reading List: </h1>
 	<table>
 		<thead>
 			<tr>
@@ -44,9 +44,8 @@
 				<td><%= link_to goal.author.name, author_path(goal.author) %></td>
 				<td><%= goal.check_if_true %></td>
 				<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
-		
-				<%#= button_to "Change Status", {action: update_status_path, :goal_id => goal.id}, method: "patch" %>
-					<%#= button_to "Delete Book", PATH, method: "delete" %>
+				<td><%= button_to "Change Status", update_status_path(goal), method: "patch" %>
+					<%= button_to "Delete Book", goal_path(goal), method: "delete" %></td>
 			</tr>
 			<% end %>
 		</tbody>
