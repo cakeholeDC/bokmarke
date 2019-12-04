@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :is_current_profile?
+	helper_method :is_current_profile?, :is_logged_in?
 
 	def home
 		render :home
@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
 
 	def is_current_profile?
 		session[:username] == @reader.username
+	end
+
+	def is_logged_in?
+		session.include?(:username)
 	end
 end

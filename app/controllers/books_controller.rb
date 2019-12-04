@@ -1,8 +1,15 @@
 class BooksController < ApplicationController
 	before_action :find_book, only: [:show]
-	
-	def index
-		@books = Book.all
+
+	def show
+		@goal = Goal.new
+	end
+
+	def create
+		results = GoogleBooks.search(params[:search], {:count => 5})
+		@books = Book.create_books_from_google(results)
+		# byebug
+		render :index
 	end
 
 	private

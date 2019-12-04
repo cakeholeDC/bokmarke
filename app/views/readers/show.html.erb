@@ -6,15 +6,16 @@
 <% end %>
 
 <h2>Real Name: <%= @reader.name %></h2>
-<p><%= @reader.bio %></p>
+<p>Age: <%= @reader.age %>
+<p>Bio: <%= @reader.bio %></p>
 
 
-<p><%= @reader.display_fav_book_by_id %></p>
-<p><%= @reader.display_fav_author_by_id %></p>
+<p><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></p>
+<p><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></p>
 
 <% if is_current_profile? %>
 	<%= form_for @goal do |f| %>
-		<%= f.hidden_field :reader_id, value: @reader.id.to_i %>
+		<%= f.hidden_field :reader_id, value: @reader.id %>
 		<div>
 			<%= f.label :book_id, "Book" %>
 			<%= f.collection_select :book_id, Book.all, :id, :title %>
@@ -52,7 +53,12 @@
 				<td><%= goal.check_if_true %></td>
 				<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
 				<% if is_current_profile? %>
-					<td><%= button_to "Change Status", update_status_path(goal), method: "patch" %>
+					<td>
+						<% if goal.status %>
+							<%#= button_to "Leave Review", reviews_path, method: "get" %>
+						<% else %>
+							<%= button_to "Finished Book", update_status_path(goal), method: "patch" %>
+						<% end %>
 						<%= button_to "Delete Book", goal_path(goal), method: "delete" %></td>
 				<% end %>
 			</tr>

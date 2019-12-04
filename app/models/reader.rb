@@ -10,6 +10,19 @@ class Reader < ApplicationRecord
 
 	has_secure_password
 
+	def self.search(search)
+		if search
+			username = Reader.where("username like ?", "%#{search}%")
+			if username
+				username
+			else
+				Reader.all
+			end
+		else
+			Reader.all
+		end
+	end
+
 	def display_fav_book_by_id
 		if self.fav_book
 			book = Book.find(self.fav_book)

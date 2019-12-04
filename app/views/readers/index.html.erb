@@ -1,6 +1,16 @@
 <h1>All Readers</h1>
 <%#= button_to "New Reader", new_reader_path, method: "get" %>
 
+<% if flash[:error] %>
+	<div class="error-message"><%= flash[:error] %></div>
+<% end %>
+
+
+<%= form_tag readers_path, method: 'get' do %>
+	<%= text_field_tag :search %>
+	<%= submit_tag "Search" %>
+<% end %>
+
 <ul>
 	<% @readers.each do |reader| %>
 		<li><%= link_to reader.username, reader_path(reader) %></li>

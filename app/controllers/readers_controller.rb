@@ -3,7 +3,12 @@ class ReadersController < ApplicationController
 	before_action :login_required, only: [:index, :show, :edit, :update, :destroy]
 
 	def index
-		@readers = Reader.all 
+		if Reader.search(params[:search]) == []
+			flash[:error] = "No Results Found"
+			@readers = Reader.all
+		else
+			@readers = Reader.search(params[:search])
+		end
 	end
 
 	def show

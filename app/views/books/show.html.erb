@@ -4,3 +4,19 @@
 <h4><%= @book.category %></h4>
 <h4><%= @book.page_count %></h4>
 <p><%= @book.description %></p>
+
+
+
+<% if is_logged_in? %>
+	<%= form_for @goal do |f| %>
+		<%= f.hidden_field :reader_id, value: Reader.find_by(username: session[:username]).id %>
+		<%= f.hidden_field :book_id, value: params[:id] %>
+		<div>
+			<%= f.label "Already Read" %>
+			<%= f.radio_button :status, true %>
+			<%= f.label "Want to Read" %>
+			<%= f.radio_button :status, false %>
+		</div>
+		<%= f.submit "Add to Reading List" %>
+	<% end %>
+<% end %>

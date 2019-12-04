@@ -1,7 +1,14 @@
-<h1>All Boks</h1>
+<h1>Find a Book</h1>
 
-<ul>
-	<% @books.each do |book| %>
-		<li><%= link_to book.title, book_path(book) %></li>
-	<% end %>
-</ul>
+<%= form_tag books_path do %>
+	<%= text_field_tag :search %>
+	<%= submit_tag "Search" %>
+<% end %>
+
+<% if @books %>
+	<ul>
+		<% @books.each do |book| %>
+			<li><%= link_to book.title, book_path(book) %></li>
+		<% end %>
+	</ul>
+<% end %>
