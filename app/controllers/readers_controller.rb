@@ -1,5 +1,6 @@
 class ReadersController < ApplicationController
 	before_action :find_reader, only: [:show, :edit, :update, :destroy]
+	before_action :login_required, only: [:index, :show, :edit, :update, :destroy]
 
 	def index
 		@readers = Reader.all 
@@ -18,6 +19,7 @@ class ReadersController < ApplicationController
 		@reader = Reader.new(reader_params)
 		
 		if @reader.save
+			session[:username] = @reader.username
 			redirect_to reader_path(@reader)
 		else
 			render :new
@@ -45,6 +47,6 @@ class ReadersController < ApplicationController
 		end
 
 		def reader_params
-			params.require(:reader).permit(:name, :bio, :age, :fav_author, :fav_book, :username)
+			params.require(:reader).permit(:name, :bio, :age, :fav_author, :fav_book, :username, :password)
 		end
 end

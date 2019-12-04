@@ -6187,3 +6187,2273 @@ Processing by ReadersController#show as HTML
 Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 1.9ms | Allocations: 12725)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordDigestToReader (20191204162602)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "readers" ADD "password_digest" varchar[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191204162602"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/readers" for ::1 at 2019-12-04 11:40:26 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 39.5ms | Allocations: 8688)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 198ms (Views: 167.6ms | ActiveRecord: 4.9ms | Allocations: 26655)
+
+
+Started GET "/readers/44" for ::1 at 2019-12-04 11:40:29 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mReader Load (0.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:44:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:24:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 44], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 44]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 172.0ms | Allocations: 199745)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 224ms (Views: 175.5ms | ActiveRecord: 5.2ms | Allocations: 210010)
+
+
+Started GET "/readers/47" for ::1 at 2019-12-04 11:40:34 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:44:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:24:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 47], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 47]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 17.3ms | Allocations: 7779)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.5ms | Allocations: 12826)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mReader Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  [1m[36mReader Create (1.5ms)[0m  [1m[32mINSERT INTO "readers" ("name", "age", "username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Test Testerson"], ["age", 22], ["username", "test_user"], ["created_at", "2019-12-04 16:40:51.939605"], ["updated_at", "2019-12-04 16:40:51.939605"], ["password_digest", "$2a$10$YiOlqcuwnWWCpXMkFej9xuYRSHWrvC51J8Sh1fiEFjfUKkArHTWou"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/readers" for ::1 at 2019-12-04 11:40:55 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1062)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.3ms | Allocations: 5578)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 11:40:56 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.7ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:44:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  Rendered readers/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2681)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 21.0ms | ActiveRecord: 2.0ms | Allocations: 7709)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 11:41:07 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (1.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:44:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  Rendered readers/show.html.erb within layouts/application (Duration: 61.0ms | Allocations: 10143)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 118ms (Views: 74.8ms | ActiveRecord: 9.3ms | Allocations: 27687)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:41:14 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 328)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 5444)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:44:44 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 90)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4824)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:44:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms | Allocations: 4846)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:44:57 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:46:52 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 167)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4813)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:48:16 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 4234)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:48:17 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4355)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:49:40 -0500
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 208)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 43.7ms | ActiveRecord: 0.0ms | Allocations: 9421)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:49:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 328)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 5098)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:51:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 468)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 5654)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:52:18 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2019-12-04 11:52:52 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lr5l3XDR2LJpgbx3DRyXsHEOxZnnoUtZzBlwcR67SHN4xfSJLzWtTP3aDfgn90KYco+Ckt8mhnOLlHlWSZ3Hvw==", "username"=>"qwertyj", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "qwertyj"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 17ms (ActiveRecord: 0.8ms | Allocations: 4053)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:52:52 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1125)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2283)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Log In</h1>
+
+<%= if flash[:error] %>
+	<div class="error-message"><%= flash[:error] %></div>
+<% end %>
+
+
+<%= form_tag '/login' do %>
+	<%= label_tag :username %>
+	<%= text_field_tag :username %>
+	<%= label_tag :password %>
+	<%= password_field_tag :password %>
+	<%= submit_tag "Login" %>
+<% end %>
+):
+1:    <h1>Log In</h1>
+2:    
+3:    <%= if flash[:error] %>
+4:    	<div class="error-message"><%= flash[:error] %></div>
+5:    <% end %>
+6:    
+7:    
+8:    <%= form_tag '/login' do %>
+9:    	<%= label_tag :username %>
+10:    	<%= text_field_tag :username %>
+11:    	<%= label_tag :password %>
+12:    	<%= password_field_tag :password %>
+13:    	<%= submit_tag "Login" %>
+14:    <% end %>
+  
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+Started GET "/login" for ::1 at 2019-12-04 11:53:24 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1090)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2245)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Log In</h1>
+
+<%= if flash["error"] %>
+	<div class="error-message"><%= flash["error"] %></div>
+<% end %>
+
+
+<%= form_tag '/login' do %>
+	<%= label_tag :username %>
+	<%= text_field_tag :username %>
+	<%= label_tag :password %>
+	<%= password_field_tag :password %>
+	<%= submit_tag "Login" %>
+<% end %>
+):
+1:    <h1>Log In</h1>
+2:    
+3:    <%= if flash["error"] %>
+4:    	<div class="error-message"><%= flash["error"] %></div>
+5:    <% end %>
+6:    
+7:    
+8:    <%= form_tag '/login' do %>
+9:    	<%= label_tag :username %>
+10:    	<%= text_field_tag :username %>
+11:    	<%= label_tag :password %>
+12:    	<%= password_field_tag :password %>
+13:    	<%= submit_tag "Login" %>
+14:    <% end %>
+  
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:3: syntax error, unexpected ')', expecting then or ';' or '\n'
+app/views/sessions/new.html.erb:5: syntax error, unexpected end, expecting ')'
+app/views/sessions/new.html.erb:16: syntax error, unexpected end, expecting ')'
+Started GET "/login" for ::1 at 2019-12-04 11:53:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 527)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 5753)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:53:57 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iIhIWeel5PzRQGZKiQ6mw4imQWCwXqxSZNo4tEhtiV5m89kNuEGRAkUb18Wj5XPriycGa4jZYXgjVzGTH0sGkg==", "username"=>"sdfgh", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "sdfgh"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 19ms (ActiveRecord: 1.0ms | Allocations: 3233)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:53:57 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 523)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 0.0ms | Allocations: 5726)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:54:16 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zt1uovAvwVZmdddg/AilKCyb3Ntmw9qZGLIbjEn5ueogpv/2r8u0qPIuZu/W43AALxqb0F5EF7NfPxKrHt82Jg==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 74ms (ActiveRecord: 1.5ms | Allocations: 6925)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:54:16 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 4467)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:54:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"xgvBMKOfYVAfy+T+ERndfqDkS7kjvEdbABUCnEhh34gocFBk/HsUrouQVXE78ghWo2UMshs7inFHmAu7H0dQRA==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.2ms | Allocations: 1138)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 2..3)):
+  
+app/controllers/sessions_controller.rb:9:in `test'
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/login" for ::1 at 2019-12-04 11:54:29 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"xgvBMKOfYVAfy+T+ERndfqDkS7kjvEdbABUCnEhh34gocFBk/HsUrouQVXE78ghWo2UMshs7inFHmAu7H0dQRA==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 1.2ms | Allocations: 8914)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:54:29 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4533)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:56:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 5037)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:58:29 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 519)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 5757)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:58:33 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4462)
+
+
+Started GET "/logout" for ::1 at 2019-12-04 11:58:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2019-12-04 11:58:51 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 520)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 5812)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 11:58:54 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"0r+iYj+z6tYCmj2Czm/YJqoFdsYvtcrGj+M24hWVQns8xDM2YFefKJbBjA3khA0OqYQxzRcyB+zIbj/FQrPNtw=="}
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 0.0ms | Allocations: 99708)
+
+
+  
+NameError (undefined local variable or method `sesion' for #<SessionsController:0x00007fa62dda50b8>
+Did you mean?  session):
+  
+app/controllers/sessions_controller.rb:18:in `logout'
+Started DELETE "/logout" for ::1 at 2019-12-04 11:59:04 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"0r+iYj+z6tYCmj2Czm/YJqoFdsYvtcrGj+M24hWVQns8xDM2YFefKJbBjA3khA0OqYQxzRcyB+zIbj/FQrPNtw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:59:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4625)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:59:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"5B1gmMnMd/aU+0IL6Hl35r1LiPHASbnB7h7j48h1OKIN0/iJqLf1sO/axezPYRc3WGGiumWbRwokRdkgiO7iJw==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 95ms (ActiveRecord: 1.7ms | Allocations: 8939)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:59:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 4467)
+
+
+Started POST "/login" for ::1 at 2019-12-04 11:59:14 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"eyslMJEkQEwymaw/37ZT7STkduMKRLXonAQT0/XtOuGS5b0h8F/CCkm4K9j4rjM8wc5cqK+WSyNWXykQtXbgZA==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 65ms (ActiveRecord: 0.2ms | Allocations: 864)
+
+
+Started GET "/" for ::1 at 2019-12-04 11:59:15 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 87)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 4559)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 11:59:28 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"2XW5FQlm41HXK6XZ3colX/xs3ydMRjhFxuxNcs4dNrEwuyEEaB1hF6wKIj760kWOGUb1bOmUxo4Mt3exjobsNA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 340)
+
+
+Started GET "/login" for ::1 at 2019-12-04 11:59:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 275)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 4466)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:02:41 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 7503)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 1.1ms | Allocations: 13950)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:03:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 399)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:03:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4637)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:03:27 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 316)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:03:27 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 4465)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:03:28 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 321)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:03:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4464)
+
+
+Started GET "/readers/new" for ::1 at 2019-12-04 12:03:34 -0500
+Processing by ReadersController#new as HTML
+  Rendering readers/new.html.erb within layouts/application
+  Rendered application/_error_notice.html.erb (Duration: 3.0ms | Allocations: 184)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/_reader_form.html.erb:20
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/readers/_reader_form.html.erb:24
+  Rendered readers/_reader_form.html.erb (Duration: 258.3ms | Allocations: 192547)
+  Rendered readers/new.html.erb within layouts/application (Duration: 264.8ms | Allocations: 193271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 310ms (Views: 271.2ms | ActiveRecord: 3.8ms | Allocations: 205655)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:04:32 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 622)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 5866)
+
+
+Started GET "/readers/new" for ::1 at 2019-12-04 12:04:38 -0500
+Processing by ReadersController#new as HTML
+  Rendering readers/new.html.erb within layouts/application
+  Rendered application/_error_notice.html.erb (Duration: 0.5ms | Allocations: 177)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/_reader_form.html.erb:20
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/readers/_reader_form.html.erb:24
+  Rendered readers/_reader_form.html.erb (Duration: 8.6ms | Allocations: 3718)
+  Rendered readers/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4414)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.5ms | Allocations: 9198)
+
+
+Started GET "/readers/new" for ::1 at 2019-12-04 12:06:21 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#new as HTML
+  Rendering readers/new.html.erb within layouts/application
+  Rendered application/_error_notice.html.erb (Duration: 0.3ms | Allocations: 177)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/_reader_form.html.erb:24
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/readers/_reader_form.html.erb:28
+  Rendered readers/_reader_form.html.erb (Duration: 29.9ms | Allocations: 15278)
+  Rendered readers/new.html.erb within layouts/application (Duration: 31.6ms | Allocations: 15972)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 38.2ms | ActiveRecord: 4.3ms | Allocations: 29160)
+
+
+Started POST "/readers" for ::1 at 2019-12-04 12:06:40 -0500
+Processing by ReadersController#create as HTML
+  Parameters: {"authenticity_token"=>"vhmdDAHR/HUt5spW9UZ4uhd/6831l/Mn39Iy+RHKQmHsKQD26q47i3st2PRJJy8oB2LykzraLd9GcpD0lCK/ig==", "reader"=>{"username"=>"Trevor", "password"=>"[FILTERED]", "name"=>"trevor", "age"=>"55", "bio"=>"trevor", "fav_book"=>"33", "fav_author"=>"33"}, "commit"=>"Create Reader"}
+[31mUnpermitted parameter: :password[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[36mReader Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  Rendering readers/new.html.erb within layouts/application
+  Rendered application/_error_notice.html.erb (Duration: 0.5ms | Allocations: 145)
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/_reader_form.html.erb:24
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/readers/_reader_form.html.erb:28
+  Rendered readers/_reader_form.html.erb (Duration: 8.0ms | Allocations: 3607)
+  Rendered readers/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 25.9ms | ActiveRecord: 1.2ms | Allocations: 11619)
+
+
+Started POST "/readers" for ::1 at 2019-12-04 12:06:48 -0500
+Processing by ReadersController#create as HTML
+  Parameters: {"authenticity_token"=>"3z6sSeRISIa9qlLLaJf6SshYahIBOkn99MnsYH9bc2mNDjGzDzePeOthQGnU9q3Y2EVzTM53lwVtaU5t+rOOgg==", "reader"=>{"username"=>"Trevor", "password"=>"[FILTERED]", "name"=>"trevor", "age"=>"55", "bio"=>"trevor", "fav_book"=>"33", "fav_author"=>"33"}, "commit"=>"Create Reader"}
+[31mUnpermitted parameter: :password[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[36mReader Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  Rendering readers/new.html.erb within layouts/application
+  Rendered application/_error_notice.html.erb (Duration: 0.5ms | Allocations: 139)
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/_reader_form.html.erb:24
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/readers/_reader_form.html.erb:28
+  Rendered readers/_reader_form.html.erb (Duration: 8.7ms | Allocations: 3595)
+  Rendered readers/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3865)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 17.4ms | ActiveRecord: 2.0ms | Allocations: 11181)
+
+
+Started POST "/readers" for ::1 at 2019-12-04 12:07:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#create as HTML
+  Parameters: {"authenticity_token"=>"Rqo7ZI5zYi6iYBEdOLB20yg1U/Z4aRyWMW88qRU20iEUmqaeZQyl0PSrA7+E0SFBOChKqLckwm6oz56kkN4vyg==", "reader"=>{"username"=>"Trevor", "password"=>"[FILTERED]", "name"=>"trevor", "age"=>"55", "bio"=>"trevor", "fav_book"=>"33", "fav_author"=>"33"}, "commit"=>"Create Reader"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[36mReader Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[36mReader Create (0.5ms)[0m  [1m[32mINSERT INTO "readers" ("name", "bio", "age", "fav_author", "fav_book", "username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "trevor"], ["bio", "trevor"], ["age", 55], ["fav_author", 33], ["fav_book", 33], ["username", "Trevor"], ["created_at", "2019-12-04 17:07:23.528266"], ["updated_at", "2019-12-04 17:07:23.528266"], ["password_digest", "$2a$10$tYrrfZdX7zw6aAolewgilOnpnE7O4vHFLr3SFHk3IJE950U/ZGFjy"]]
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/readers_controller.rb:21:in `create'
+Redirected to http://localhost:3000/readers/49
+Completed 302 Found in 95ms (ActiveRecord: 4.3ms | Allocations: 11969)
+
+
+Started GET "/readers/49" for ::1 at 2019-12-04 12:07:23 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 49], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  Rendered readers/show.html.erb within layouts/application (Duration: 39.3ms | Allocations: 18163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 49.0ms | ActiveRecord: 2.8ms | Allocations: 27648)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started DELETE "/logout" for ::1 at 2019-12-04 12:08:16 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"hIbWz9OmGHg/G37GdpRepOOBFrqQCw2eirmNrJQT7tPWtks1ONnfhmnQbGTK9Qk285wP5F9G02YTGS+hEfsTOA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:08:16 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 5325)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:08:20 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"KfnmYKmQ/IPTyNZ8qTSQvjCVO6WqkzXOHoWlsxkEbrq82gGEPbeos3g87rk1DhbgUvjDNLTokv6DqPf1yzMwNQ==", "username"=>"trevor", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "trevor"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 965)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:08:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4524)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:08:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zFue9ojMpQBjoFRv8asYU8Wl/OphfFeK0pKiCQc8H0tZeHkSHOvxMMhUbKptkZ4Np8gEe38H8LpPv/BP1QtBxA==", "username"=>"Trevor", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms (ActiveRecord: 0.3ms | Allocations: 867)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:08:25 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 4552)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:11:44 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 1.0ms | Allocations: 13750)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:12:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 87)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.1ms | Allocations: 5647)
+
+
+Started DELETE "/readers/49" for ::1 at 2019-12-04 12:12:06 -0500
+Processing by ReadersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7m+c3m7lytRCisuEcJZVecs4qbWFFXt4amO9GU+FuYp7THs6+sKe5Ol+80HsrNMnqVVRJJtu3Ej3Tu9fnbLnBQ==", "id"=>"49"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/readers_controller.rb:39:in `destroy'
+  [1m[36mReader Destroy (0.3ms)[0m  [1m[31mDELETE FROM "readers" WHERE "readers"."id" = ?[0m  [["id", 49]]
+  ↳ app/controllers/readers_controller.rb:39:in `destroy'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/readers_controller.rb:39:in `destroy'
+Redirected to http://localhost:3000/readers
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms | Allocations: 2731)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:12:06 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1259)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms | Allocations: 7306)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"readers", :id=>nil}, missing required keys: [:id]):
+    17:       <%= link_to "Readers", readers_path %> /
+    18:       <% if session[:username] %>
+    19:         <%= link_to "#{session[:username]}'s' Profile", 
+    20:         reader_path(Reader.find_by(username: session[:username])), method: 'delete' %> /
+    21:         <%= link_to "Log Out", logout_path, method: 'delete' %>
+    22:       <% else %>
+    23:         <%= link_to "Log in", login_path %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/readers" for ::1 at 2019-12-04 12:12:28 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.5ms | Allocations: 7802)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"readers", :id=>nil}, missing required keys: [:id]):
+    17:       <%= link_to "Readers", readers_path %> /
+    18:       <% if session[:username] %>
+    19:         <%= link_to "#{session[:username]}'s' Profile", 
+    20:         reader_path(Reader.find_by(username: session[:username])) %> /
+    21:         <%= link_to "Log Out", logout_path, method: 'delete' %>
+    22:       <% else %>
+    23:         <%= link_to "Log in", login_path %>
+  
+app/views/layouts/application.html.erb:20
+Started DELETE "/readers/49" for ::1 at 2019-12-04 12:12:32 -0500
+Processing by ReadersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7m+c3m7lytRCisuEcJZVecs4qbWFFXt4amO9GU+FuYp7THs6+sKe5Ol+80HsrNMnqVVRJJtu3Ej3Tu9fnbLnBQ==", "id"=>"49"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1107)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Reader with 'id'=49):
+  
+app/controllers/readers_controller.rb:46:in `find_reader'
+Started GET "/readers" for ::1 at 2019-12-04 12:12:41 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1061)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.4ms | Allocations: 6513)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"readers", :id=>nil}, missing required keys: [:id]):
+    17:       <%= link_to "Readers", readers_path %> /
+    18:       <% if session[:username] %>
+    19:         <%= link_to "#{session[:username]}'s' Profile", 
+    20:         reader_path(Reader.find_by(username: session[:username])) %> /
+    21:         <%= link_to "Log Out", logout_path, method: 'delete' %>
+    22:       <% else %>
+    23:         <%= link_to "Log in", login_path %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/readers" for ::1 at 2019-12-04 12:13:13 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "Trevor"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms | Allocations: 7801)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"readers", :id=>nil}, missing required keys: [:id]):
+    16:       <%= link_to "Authors", authors_path %> /
+    17:       <%= link_to "Readers", readers_path %> /
+    18:       <% if session[:username] %>
+    19:         <%= link_to "#{session[:username]}'s' Profile", reader_path(Reader.find_by(username: session[:username])) %> /
+    20:         <%= link_to "Log Out", logout_path, method: 'delete' %>
+    21:       <% else %>
+    22:         <%= link_to "Log in", login_path %>
+  
+app/views/layouts/application.html.erb:19
+Started GET "/readers" for ::1 at 2019-12-04 12:14:00 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.3ms | Allocations: 6571)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:14:15 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1063)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 5283)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 12:14:27 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  Rendered readers/show.html.erb within layouts/application (Duration: 24.1ms | Allocations: 10698)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 30.5ms | ActiveRecord: 2.6ms | Allocations: 21942)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 12:14:31 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"55ZhsnFXb+TGkliCuaK1XgEaGiqFkszOzVuU+srA+jhytYZW5XA71G1mYEclmDMAY3fiu5vpa/5Qdsa8GPektw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 340)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:14:31 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 5330)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:14:36 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"rbZbP+ODVuf2vDCA9wPXfgjSf5D1RkDw2jSgmu8Mux/n3wDYPcjB+NgvM4Br0fK9ozMQsYURC+5+6NQo4w732w==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 68ms (ActiveRecord: 0.2ms | Allocations: 877)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:14:36 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4523)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:14:42 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"D2JOiwuqSzKYSnrejxCFoYNQExWxbFgs/tywDC8eASlFCxVs1eHcLbbZed4TwqBiKLF8NME7EzJaAMS+IxxN7Q==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 65ms (ActiveRecord: 0.2ms | Allocations: 866)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:14:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4548)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 87)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2102)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>Bokmärke</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to "Home", home_path %> /
+      <%= link_to "Books", books_path %> /
+      <%= link_to "Authors", authors_path %> /
+      <%= link_to "Readers", readers_path %> /
+      <% if session[:username] %>
+        <%= link_to "#{session[:username]}'s' Profile", reader_path(Reader.find_by(username: :username])) %> /
+        <%= link_to "Log Out", logout_path, method: 'delete' %>
+      <% else %>
+        <%= link_to "Log in", login_path %>
+      <% end %>
+
+    </nav>
+
+    <%= yield %>
+
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>Bokmärke</title>
+5:        <%= csrf_meta_tags %>
+6:        <%= csp_meta_tag %>
+7:    
+8:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+9:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <nav>
+14:          <%= link_to "Home", home_path %> /
+15:          <%= link_to "Books", books_path %> /
+16:          <%= link_to "Authors", authors_path %> /
+17:          <%= link_to "Readers", readers_path %> /
+18:          <% if session[:username] %>
+19:            <%= link_to "#{session[:username]}'s' Profile", reader_path(Reader.find_by(username: :username])) %> /
+20:            <%= link_to "Log Out", logout_path, method: 'delete' %>
+21:          <% else %>
+22:            <%= link_to "Log in", login_path %>
+23:          <% end %>
+24:    
+25:        </nav>
+26:    
+27:        <%= yield %>
+28:    
+29:      </body>
+30:    </html>
+  
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:19: syntax error, unexpected ']', expecting ')'
+app/views/layouts/application.html.erb:21: syntax error, unexpected else, expecting ')'
+app/views/layouts/application.html.erb:23: syntax error, unexpected end, expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected end, expecting ')'
+app/controllers/application_controller.rb:5:in `home'
+Started GET "/login" for ::1 at 2019-12-04 12:14:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 613)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 5890)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:14:55 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 6030)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started DELETE "/logout" for ::1 at 2019-12-04 12:15:22 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"jvAnrBmXNUJZFUpbD6KNtG4dsM0CTOx1xJEjS9NISmbEmXxLx9yiXXeGSVuTcKh3xfzf7HIbp2tgTVf530oGog=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:15:22 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 353)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4520)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:15:39 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"HicJRHf87dW11MCgcIUTtr5hh1ynJHC9fohUp3uUBZEc/lUfzFd4JMgT219I1XKrlLRO0QTX7mz0bZmeOuCvhA==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 66ms (ActiveRecord: 0.3ms | Allocations: 861)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:15:39 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4551)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:15:50 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.1ms | Allocations: 5624)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 12:15:54 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  Rendered readers/show.html.erb within layouts/application (Duration: 15.3ms | Allocations: 3252)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 34ms (Views: 29.5ms | ActiveRecord: 1.1ms | Allocations: 9139)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 12:16:06 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"jXuFATMa/VOh0LYe3M2Bk2wXmjnHd/YIQPLCFrmKC5aPotlaiLFootwXreHkneCORsJTtGSEaNnKFw8v+P6hgw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:16:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.0ms | Allocations: 5330)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:16:08 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 4511)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:16:13 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zfHkLIuCTn3EiO3czA9M8HgtLupCUgDvCIG0oe0dzF8RDxv+nB5WSMXr3QGHj/tcY1/9mybdwUMuYS+ifQTepw==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 62ms (ActiveRecord: 0.3ms | Allocations: 885)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:16:13 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.1ms | Allocations: 4735)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 12:16:30 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"VI7qXQUFO5ROdMTJJxAdldYSfAkQnOIfTyVxI09arVN2BAlToWLmv47MJWUuv9ixVCYFKSD4YbsNvBUFmPMaPw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 344)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:16:30 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 4503)
+
+
+Started GET "/books" for ::1 at 2019-12-04 12:16:32 -0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1136)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 5940)
+
+
+Started GET "/authors" for ::1 at 2019-12-04 12:16:34 -0500
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:4
+  Rendered authors/index.html.erb within layouts/application (Duration: 27.4ms | Allocations: 4810)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 0.9ms | Allocations: 10319)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:16:35 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:16:35 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 349)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 4536)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:16:37 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4158)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:16:38 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 317)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:16:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4514)
+
+
+Started POST "/login" for ::1 at 2019-12-04 12:16:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"uhjjvVKyil96fJqzMHT2YJz2IsyPkIJGAxh5l5BRwfBUhRpPFyZ2PIC83bCLFrJcGpK5bqzQR4N5g1HKZkiiKg==", "username"=>"test_user", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 65ms (ActiveRecord: 0.3ms | Allocations: 885)
+
+
+Started GET "/" for ::1 at 2019-12-04 12:16:52 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 4730)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:16:54 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.6ms | Allocations: 6151)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:16:56 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 33.3ms | Allocations: 8502)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 44ms (Views: 38.8ms | ActiveRecord: 2.4ms | Allocations: 13706)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:17:00 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1061)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.4ms | Allocations: 5846)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:17:23 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1176)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 7074)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:17:27 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 27.7ms | Allocations: 6520)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 2.3ms | Allocations: 11963)
+
+
+Started POST "/goals" for ::1 at 2019-12-04 12:17:30 -0500
+Processing by GoalsController#create as HTML
+  Parameters: {"authenticity_token"=>"GTSxionff8jU9X8g2r3htiOrkWt+EjuGXD4Knud+19y2fIuzSxd4iyRMe1mB8iCIemXtNrcmdPIOMXPnEWGxYQ==", "goal"=>{"reader_id"=>"46", "book_id"=>"38", "status"=>"true"}, "commit"=>"Add to Reading List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mGoal Create (0.5ms)[0m  [1m[32mINSERT INTO "goals" ("reader_id", "book_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["reader_id", 46], ["book_id", 38], ["status", 1], ["created_at", "2019-12-04 17:17:30.826870"], ["updated_at", "2019-12-04 17:17:30.826870"]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+Redirected to http://localhost:3000/readers/46
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 4787)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:17:30 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 43.3ms | Allocations: 7663)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 53ms (Views: 50.0ms | ActiveRecord: 1.6ms | Allocations: 12962)
+
+
+Started PATCH "/goals/31" for ::1 at 2019-12-04 12:17:34 -0500
+Processing by GoalsController#update_status as HTML
+  Parameters: {"authenticity_token"=>"6itOCkcCwLg5i3n9QFKV98e1ZV9Ayrw7Ci97JxvJZqIvKom6IorNADx7NlZBRWgVqj2i2Ddqluvn9q6/+2HO/g==", "id"=>"31"}
+  [1m[36mGoal Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `update_status'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[36mGoal Update (0.5ms)[0m  [1m[33mUPDATE "goals" SET "status" = ?, "updated_at" = ? WHERE "goals"."id" = ?[0m  [["status", 0], ["updated_at", "2019-12-04 17:17:34.845793"], ["id", 31]]
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:13:in `update_status'
+Redirected to http://localhost:3000/readers/46
+Completed 302 Found in 12ms (ActiveRecord: 2.9ms | Allocations: 3680)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:17:34 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 17.0ms | Allocations: 7664)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 1.4ms | Allocations: 12955)
+
+
+Started PATCH "/goals/31" for ::1 at 2019-12-04 12:17:39 -0500
+Processing by GoalsController#update_status as HTML
+  Parameters: {"authenticity_token"=>"62ZJo9GmNPw3j1yxMd359T1qg/CtDW5w2PpD1qgUIDMuZ44TtC45RDJ/ExowygQXUOJEd9qtRKA1I5ZOSLyIbw==", "id"=>"31"}
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:11:in `update_status'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[36mGoal Update (0.9ms)[0m  [1m[33mUPDATE "goals" SET "status" = ?, "updated_at" = ? WHERE "goals"."id" = ?[0m  [["status", 1], ["updated_at", "2019-12-04 17:17:39.060497"], ["id", 31]]
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/goals_controller.rb:12:in `update_status'
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:13:in `update_status'
+Redirected to http://localhost:3000/readers/46
+Completed 302 Found in 26ms (ActiveRecord: 6.6ms | Allocations: 6699)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:17:39 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 23.4ms | Allocations: 7662)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 1.9ms | Allocations: 12961)
+
+
+Started POST "/goals" for ::1 at 2019-12-04 12:17:44 -0500
+Processing by GoalsController#create as HTML
+  Parameters: {"authenticity_token"=>"Fy1pfEDxut7mzwe/948T3tP1QVxo6HrixIEl35FDtd7SLK7MJXm3ZuM/SBT2mO48vn2G2x9IUDIpWPBHcesdgg==", "goal"=>{"reader_id"=>"46", "book_id"=>"35", "status"=>"false"}, "commit"=>"Add to Reading List"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mGoal Create (0.8ms)[0m  [1m[32mINSERT INTO "goals" ("reader_id", "book_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["reader_id", 46], ["book_id", 35], ["status", 0], ["created_at", "2019-12-04 17:17:44.467950"], ["updated_at", "2019-12-04 17:17:44.467950"]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+Redirected to http://localhost:3000/readers/46
+Completed 302 Found in 19ms (ActiveRecord: 3.5ms | Allocations: 4538)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:17:44 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:17
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:29
+  [1m[36mGoal Load (0.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:42
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:44
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 17.8ms | Allocations: 9382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 33ms (Views: 25.9ms | ActiveRecord: 1.7ms | Allocations: 14675)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:18:49 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:20
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:32
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:45
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:47
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:47
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:47
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 32.1ms | Allocations: 9812)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 68ms (Views: 62.6ms | ActiveRecord: 3.7ms | Allocations: 16231)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 12:18:52 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:20
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:32
+  Rendered readers/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 21ms (Views: 16.0ms | ActiveRecord: 1.0ms | Allocations: 7976)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:19:23 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mGoal Load (0.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:46
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 16.2ms | Allocations: 8104)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 1.5ms | Allocations: 14521)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:21:57 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  Rendered readers/show.html.erb within layouts/application (Duration: 201.0ms | Allocations: 76953)
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 2.5ms | Allocations: 91422)
+
+
+  
+ActionView::Template::Error (undefined method `is_current_profile?' for #<#<Class:0x00007fa62c502038>:0x00007fa62c5003f0>):
+    1: <h1><%= @reader.username %></h1>
+    2: 
+    3: <% if is_current_profile? %>
+    4: 	<%= button_to "Edit My Profile", edit_reader_path(@reader), method: 'get' %>
+    5: 	<%= button_to "Delete My Profile", reader_path(@reader), method: 'delete' %> <!-- USER PROMPT -->
+    6: <% end %>
+  
+app/views/readers/show.html.erb:3
+Started GET "/readers/46" for ::1 at 2019-12-04 12:22:52 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:46
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 43.5ms | Allocations: 21290)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 81ms (Views: 51.1ms | ActiveRecord: 4.5ms | Allocations: 39518)
+
+
+Started GET "/readers/46" for ::1 at 2019-12-04 12:23:39 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 46], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 46]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 11.4ms | Allocations: 7383)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 1.3ms | Allocations: 13798)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 12:23:58 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:20
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  Rendered readers/show.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2764)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 1.0ms | Allocations: 8059)
+
+
+Started POST "/goals" for ::1 at 2019-12-04 12:24:04 -0500
+Processing by GoalsController#create as HTML
+  Parameters: {"authenticity_token"=>"cNU0pGval4yV9ksd62OKxNUc/nzxIRlJ4e76sKuWN/XfnQ6dqRKQz2VPT2SwLEv6jNKCITgVVj2z4YPJXYlRSA==", "goal"=>{"reader_id"=>"48", "book_id"=>"39", "status"=>"false"}, "commit"=>"Add to Reading List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[36mGoal Create (2.4ms)[0m  [1m[32mINSERT INTO "goals" ("reader_id", "book_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["reader_id", 48], ["book_id", 39], ["status", 0], ["created_at", "2019-12-04 17:24:04.193022"], ["updated_at", "2019-12-04 17:24:04.193022"]]
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/goals_controller.rb:4:in `create'
+Redirected to http://localhost:3000/readers/48
+Completed 302 Found in 24ms (ActiveRecord: 12.1ms | Allocations: 4776)
+
+
+Started GET "/readers/48" for ::1 at 2019-12-04 12:24:04 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/readers/show.html.erb:20
+  [1m[36mGoal Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 48]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 20.6ms | Allocations: 5005)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 1.5ms | Allocations: 10302)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:08 -0500
+Processing by ReadersController#index as HTML
+  Rendering readers/index.html.erb within layouts/application
+  [1m[36mReader Load (0.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers"[0m
+  ↳ app/views/readers/index.html.erb:5
+  Rendered readers/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1205)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.7ms | Allocations: 6126)
+
+
+Started GET "/readers/47" for ::1 at 2019-12-04 12:24:11 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mReader Load (0.6ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:46:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:15:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:22:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 47], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 47]]
+  ↳ app/views/readers/show.html.erb:48
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:50
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:14:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 14.1ms | Allocations: 5335)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "test_user"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 31ms (Views: 24.2ms | ActiveRecord: 2.0ms | Allocations: 10628)
+
+
+Started DELETE "/logout" for ::1 at 2019-12-04 12:24:18 -0500
+Processing by SessionsController#logout as HTML
+  Parameters: {"authenticity_token"=>"cRUDlhFbuL0qNHdWov/hyFHG9slkU0m9wnyPFHoCqbm0FMQmdNO1BS/EOP2j6BwqPE4xThPzY20vpVqMmqoB5Q=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:18 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5340)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:19 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:19 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 4515)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:20 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 318)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 4522)
+
+
+Started GET "/authors" for ::1 at 2019-12-04 12:24:20 -0500
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:4
+  Rendered authors/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 5966)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:21 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 317)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:21 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 349)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 4533)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:25 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 319)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:25 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 915ms (Views: 914.6ms | ActiveRecord: 0.0ms | Allocations: 4516)
+
+
+Started GET "/authors" for ::1 at 2019-12-04 12:24:29 -0500
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:4
+  Rendered authors/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 970)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms | Allocations: 5169)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:34 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:34 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4516)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:36 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 317)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:36 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4521)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 4505)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:41 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 317)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 4516)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:56 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:56 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4524)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:57 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4509)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:57 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:57 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4517)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:58 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 4505)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:24:59 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 324)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:59 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4518)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:24:59 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 4507)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:26:24 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 321)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:26:24 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4515)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:26:26 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 315)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:26:26 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 4515)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:26:26 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 319)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:26:26 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4513)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:26:28 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:26:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4521)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:27:27 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 406)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:27:27 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 356)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4713)
+
+
+Started GET "/books" for ::1 at 2019-12-04 12:28:00 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6849)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.7ms | Allocations: 13177)
+
+
+Started GET "/authors" for ::1 at 2019-12-04 12:28:00 -0500
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:4
+  Rendered authors/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4597)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 1.1ms | Allocations: 9682)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:28:01 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 408)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:28:01 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 356)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4711)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:28:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 4509)
+
+
+Started GET "/readers" for ::1 at 2019-12-04 12:28:04 -0500
+Processing by ReadersController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :login_required rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:28:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 347)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4545)
+
+
+Started GET "/login" for ::1 at 2019-12-04 12:28:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.0ms | Allocations: 4507)
+
+
