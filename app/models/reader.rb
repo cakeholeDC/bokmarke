@@ -42,5 +42,20 @@ class Reader < ApplicationRecord
 	# 	Reader.find_by(username: session[:username]) #unless !session[:username]
 	# end
 
+	def goal_by_book(book)
+		self.goals.find_by(book_id: book.id)
+	end
+
+	def can_review?(book)
+		goal = self.goal_by_book(book)
+		goal && goal.status && !goal.review
+	
+	end
+
+	def can_add_to_reading_list?(book)
+		!self.goal_by_book(book)
+	end
+
+
 
 end

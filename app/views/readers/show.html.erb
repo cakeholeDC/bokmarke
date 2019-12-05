@@ -13,22 +13,6 @@
 <p><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></p>
 <p><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></p>
 
-<% if is_current_profile? %>
-	<%= form_for @goal do |f| %>
-		<%= f.hidden_field :reader_id, value: @reader.id %>
-		<div>
-			<%= f.label :book_id, "Book" %>
-			<%= f.collection_select :book_id, Book.all, :id, :title %>
-		</div>
-		<div>
-			<%= f.label "Already Read" %>
-			<%= f.radio_button :status, true %>
-			<%= f.label "Want to Read" %>
-			<%= f.radio_button :status, false %>
-		</div>
-		<%= f.submit "Add to Reading List" %>
-	<% end %>
-<% end %>
 
 
 <% if @reader.goals.any? %>
@@ -55,7 +39,7 @@
 				<% if is_current_profile? %>
 					<td>
 						<% if goal.status %>
-							<%= button_to "Leave Review", new_review_path, method: "get" %>
+							<%= button_to "Leave Review", "/books/#{goal.book_id}/#review", method: "get" %>
 						<% else %>
 							<%= button_to "Finished Book", update_status_path(goal), method: "patch" %>
 						<% end %>

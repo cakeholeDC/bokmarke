@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
 	def create
 		@goal = Goal.create(goals_params)
 
-		redirect_to reader_path(@goal.reader_id)
+		redirect_to book_path(@goal.book_id)
 	end
 
 	def update_status

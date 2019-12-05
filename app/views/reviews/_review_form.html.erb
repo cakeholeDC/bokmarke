@@ -1,4 +1,7 @@
 <%= form_for @review do |f| %>
+	<%= f.hidden_field :book_id, value: book %>
+	<%= f.hidden_field :goal_id, value: goal %>
+
 	<div>
 		<%= f.label :content  %>
 		<%= f.text_area :content %>
@@ -12,6 +15,6 @@
 		<%= f.check_box :recommend %>
 	</div>
 	<div>
-		<%= f.submit "Leave Review" %>
+		<%= f.submit submit_text %>
 	</div>
 <% end %>

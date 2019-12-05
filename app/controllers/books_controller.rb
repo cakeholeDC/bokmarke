@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
 	def show
 		@goal = Goal.new
+		@review = Review.new
 	end
 
 	def create

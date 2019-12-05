@@ -7,18 +7,49 @@
 
 
 
-<% if is_logged_in? %> <%# && !session_user.goals.book_id.include?(id: @book.id) %>
-	<%= form_for @goal do |f| %>
-		<%= f.hidden_field :reader_id, value: session_user.id %>
-		<%= f.hidden_field :book_id, value: params[:id] %>
-		<div>
-			<%= f.label "Already Read" %>
-			<%= f.radio_button :status, true %>
-			<%= f.label "Want to Read" %>
-			<%= f.radio_button :status, false %>
-		</div>
-		<%= f.submit "Add to Reading List" %>
+<% if session_user.can_add_to_reading_list?(@book)%>
+		<%= form_for @goal do |f| %>
+			<%= f.hidden_field :reader_id, value: session_user.id %>
+			<%= f.hidden_field :book_id, value: params[:id] %>
+			<div>
+				<%= f.label "Already Read" %>
+				<%= f.radio_button :status, true %>
+				<%= f.label "Want to Read" %>
+				<%= f.radio_button :status, false %>
+			</div>
+			<%= f.submit "Add to Reading List" %>
+		<% end %>
+	<% elsif is_logged_in? %>
+		<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) %></p>
+
+<% end %>
+
+<a name="review" ></a>
+
+<% if session_user.can_review?(@book)%>
+	<h3>Leave a Review </h3>
+	<%= render partial:'reviews/review_form', locals: {book: params[:id], goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
+<%end%>
+
+<h3>Reviews</h3>
+
+<% if @book.reviews.any? %>
+	<table>
+
+	<% @book.reviews.each do |review| %>
+		<tr>
+			<td>
+				<div>User: <%= review.goal.reader.username %></div>
+				<div>Date: <%= review.created_at.strftime("%b %-d, %Y")%></div>
+			</td>
+			<td>
+				<div>Rating: <%= review.rating %></div>
+				<div><%= review.content %></div>
+				<div>Recommended? <%= review.recommend %></div>
+			</td>
+		</tr>
 	<% end %>
+	</table>
 <% else %>
-	<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) %></p>
+	<p>This book has not been reviewed yet!</p>
 <% end %>
