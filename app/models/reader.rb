@@ -56,6 +56,14 @@ class Reader < ApplicationRecord
 		!self.goal_by_book(book)
 	end
 
+	def sorted_goals
+		self.goals.sort_by do |goal|
+			goal.book.title
+		end
+	end
+
+
+
 
 
 end

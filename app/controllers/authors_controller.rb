@@ -4,9 +4,9 @@ class AuthorsController < ApplicationController
 	def index
 		if Author.search(params[:search]) == []
 			flash[:error] = "No Results Found"
-			@authors = Author.all
+			@authors = Author.all.sort_by {|author| author.name}
 		else
-			@authors = Author.search(params[:search])
+			@authors = Author.search(params[:search]).sort_by {|author| author.name}
 		end
 	end
 
@@ -16,3 +16,4 @@ class AuthorsController < ApplicationController
 			@author = Author.find(params[:id])
 		end
 end
+

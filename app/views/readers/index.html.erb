@@ -11,6 +11,8 @@
 	<%= submit_tag "Search" %>
 <% end %>
 
+<br>
+<%= button_to "Random Reader", reader_path(Reader.all.sample), method: "get" %>
 <ul>
 	<% @readers.each do |reader| %>
 		<li><%= link_to reader.username, reader_path(reader) %></li>

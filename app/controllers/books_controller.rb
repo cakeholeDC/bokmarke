@@ -7,9 +7,12 @@ class BooksController < ApplicationController
 	end
 
 	def create
-		results = GoogleBooks.search(params[:search], {:count => 5})
-		@books = Book.create_books_from_google(results)
-		# byebug
+
+
+		if params[:search] != ''
+			results = GoogleBooks.search("in#{params[:type]}:#{params[:search]}", {:count => 5})
+			@books = Book.create_books_from_google(results)
+		end
 		render :index
 	end
 

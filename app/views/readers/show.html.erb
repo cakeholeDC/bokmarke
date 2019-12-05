@@ -30,7 +30,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%@reader.goals.each do |goal| %>
+			<%@reader.sorted_goals.each do |goal| %>
 			<tr>
 				<td><%= link_to goal.book.title, book_path(goal.book) %></td>
 				<td><%= link_to goal.author.name, author_path(goal.author) %></td>
@@ -43,7 +43,7 @@
 						<% else %>
 							<%= button_to "Finished Book", update_status_path(goal), method: "patch" %>
 						<% end %>
-						<%= button_to "Delete Book", goal_path(goal), method: "delete" %></td>
+						<%= button_to "Remove Book", goal_path(goal), method: "delete" %></td>
 				<% end %>
 			</tr>
 			<% end %>

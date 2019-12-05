@@ -5,9 +5,9 @@ class ReadersController < ApplicationController
 	def index
 		if Reader.search(params[:search]) == []
 			flash[:error] = "No Results Found"
-			@readers = Reader.all
+			@readers = Reader.all.sort_by {|reader| reader.username}
 		else
-			@readers = Reader.search(params[:search])
+			@readers = Reader.search(params[:search]).sort_by {|reader| reader.username}
 		end
 	end
 

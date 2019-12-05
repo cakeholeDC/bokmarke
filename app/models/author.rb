@@ -13,4 +13,10 @@ class Author < ApplicationRecord
 			Author.all
 		end
 	end
+
+	def sort_by_name
+		self.sort_by {|author| author.name}
+	end
+
+
 end
