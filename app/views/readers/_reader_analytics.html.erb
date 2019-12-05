@@ -1,0 +1,52 @@
+<table>
+	<tbody>
+		<tr>
+			<td>Name:</td>
+			<td><%= @reader.name %></td>
+		</tr>
+		<tr>
+			<td>Age:</td>
+			<td><%= @reader.age %></td>
+		</tr>
+		<tr>
+			<td>Bio:</td>
+			<td><%= @reader.bio %></td>
+		</tr>
+		<tr>
+			<td>Favorite Book:</td>
+			<td><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></td>
+		</tr>
+		<tr>
+			<td>Favorite Author:</td>
+			<td><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></td>
+		</tr>
+		<tr>
+			<td>Total Books Read:</td>
+			<td><%= @reader.read.count %></td>
+		</tr>
+		<tr>
+			<td>Total Pages Read:</td>
+			<td><%= @reader.number_pages_read %></td>
+		</tr>
+		<tr>
+			<td>Total Books Unread:</td>
+			<td><%= @reader.unread.count %></td>
+		</tr>
+		<tr>
+			<td>Total Pages Unread:</td>
+			<td><%= @reader.number_pages_unread %></td>
+		</tr>
+		<tr>
+			<td>Total Books Reviewed:</td>
+			<td><%= @reader.number_reviews %></td>
+		</tr>
+		<tr>
+			<td>Average Review Length:</td>
+			<td><%= @reader.average_review_length %></td>
+		</tr>
+		<tr>
+			<td>Average Rating:</td>
+			<td><%= @reader.average_rating %> Stars</td>
+		</tr>
+	</tbody>
+</table>

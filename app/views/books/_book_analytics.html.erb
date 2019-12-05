@@ -1,0 +1,29 @@
+<table>
+	<tbody>
+		<tr>
+			<td>Category:</td>
+			<td><%= @book.category %></td>
+		</tr>
+		<tr>
+			<td>Pages:</td>
+			<td><%= @book.page_count %></td>
+		</tr>
+		<tr>
+			<td>Times Read:</td>
+			<td><%= @book.times_read %></td>
+		</tr>
+		<tr>
+			<td>Pending Reads:</td>
+			<td><%= @book.times_unread %></td>
+		</tr>
+		<tr>
+			<td>Total Times on Reading Lists:</td>
+			<td><%= @book.times_on_lists %></td>
+		</tr>
+		<tr>
+			<td>Times Favorited:</td>
+			<td><%= @book.number_of_favorites %></td>
+		</tr>
+		
+	</tbody>
+</table>
