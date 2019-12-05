@@ -28,6 +28,7 @@
 
 <% if session_user.can_review?(@book)%>
 	<h3>Leave a Review </h3>
+	<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
 	<%= render partial:'reviews/review_form', locals: {book: params[:id], goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
 <%end%>
 

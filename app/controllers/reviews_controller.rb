@@ -5,15 +5,14 @@ class ReviewsController < ApplicationController
 
 	def create
 
-		@review = Review.create(review_params)
+		@review = Review.new(review_params)
 
-		# if @review.save
-		# 	redirect_to books_path#(@review.book)
-		# else
-		# 	redirect_to book_path#(@review.book)
-		# end
-
-		redirect_to book_path(@review.book_id)
+		if @review.save
+			redirect_to book_path(@review.book)
+		else
+			@book = Book.find(@review.book_id)
+			render "books/show"
+		end
 	end
 
 	private

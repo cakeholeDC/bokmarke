@@ -13194,3 +13194,483 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 157ms (Views: 136.0ms | ActiveRecord: 1.2ms | Allocations: 1634450)
 
 
+Started GET "/books/44" for ::1 at 2019-12-05 11:34:40 -0500
+  [1m[35m (15.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mBook Load (14.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19:in `find_book'
+Completed 500 Internal Server Error in 587ms (ActiveRecord: 14.3ms | Allocations: 4143990)
+
+
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/review.rb:5:in `<class:Review>'
+app/models/review.rb:1:in `<main>'
+app/controllers/books_controller.rb:6:in `show'
+Started GET "/readers/50" for ::1 at 2019-12-05 11:35:23 -0500
+  [1m[35m (12.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mReader Load (1.6ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:51:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:29:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:36:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:18
+  [1m[36mGoal Load (2.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 50]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (3.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mCACHE Book Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mCACHE Author Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 67], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 67], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 2086.4ms | Allocations: 15397760)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (1.8ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 2837ms (Views: 2243.3ms | ActiveRecord: 79.0ms | Allocations: 21733882)
+
+
+Started GET "/books/36" for ::1 at 2019-12-05 11:35:34 -0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19:in `find_book'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mAuthor Load (1.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:2
+  [1m[36mReader Load (1.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mGoal Load (2.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 36], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mCACHE Reader Load (1.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Reader Load (0.9ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 36], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mReview Load (3.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."goal_id" = ? LIMIT ?[0m  [["goal_id", 47], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:51:in `can_review?'
+  Rendered application/_error_notice.html.erb (Duration: 39.4ms | Allocations: 46302)
+  [1m[36mCACHE Reader Load (1.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 36], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  Rendered reviews/_review_form.html.erb (Duration: 196.3ms | Allocations: 628368)
+  [1m[36mReview Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."book_id" = ? LIMIT ?[0m  [["book_id", 36], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:37
+  Rendered books/show.html.erb within layouts/application (Duration: 1015.5ms | Allocations: 4158987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Reader Load (17.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 1674ms (Views: 1353.1ms | ActiveRecord: 42.2ms | Allocations: 7843730)
+
+
+Started POST "/reviews" for ::1 at 2019-12-05 11:35:43 -0500
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"nb2yh72NVRhRoUsDY2aptsJgQnyUcXXex0T8/xZIjLlMKLhqf5qp5leKZSZX4xzwDVz/q0dMzAGns5HElRdC3Q==", "review"=>{"book_id"=>"36", "goal_id"=>"47", "content"=>"", "rating"=>"", "recommend"=>"0"}, "commit"=>"Submit Review"}
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (2.0ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 193.4ms | Allocations: 1382222)
+Completed 500 Internal Server Error in 643ms (ActiveRecord: 5.6ms | Allocations: 4386395)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1><%= @book.title %></h1>
+    2: <h2><%= link_to @book.author.name, author_path(@book.author) %></h2>
+    3: <img src="<%= @book.img %>">
+    4: <h4>Category: <%= @book.category %></h4>
+  
+app/views/books/show.html.erb:1
+app/controllers/reviews_controller.rb:13:in `create'
+Started POST "/reviews" for ::1 at 2019-12-05 11:36:50 -0500
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"c+7zHsGVbnyCH068GQQKcJ+a8l8EO81xyvi69VZPDP1+f0oKtE0qjNRpZFZ712dtEKryun+LKwOAlyotOLkzOQ==", "review"=>{"book_id"=>"36", "goal_id"=>"47", "content"=>"This is a review", "rating"=>"2", "recommend"=>"1"}, "commit"=>"Submit Review"}
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (1.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (15.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mReview Create (1.8ms)[0m  [1m[32mINSERT INTO "reviews" ("goal_id", "book_id", "content", "rating", "recommend", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["goal_id", 47], ["book_id", 36], ["content", "This is a review"], ["rating", 2], ["recommend", 1], ["created_at", "2019-12-05 16:36:50.450197"], ["updated_at", "2019-12-05 16:36:50.450197"]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+Redirected to http://localhost:3000/books/36
+Redirected to 
+Completed 500 Internal Server Error in 371ms (ActiveRecord: 22.5ms | Allocations: 2196318)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/reviews_controller.rb:16:in `create'
+Started POST "/reviews" for ::1 at 2019-12-05 11:37:20 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"c+7zHsGVbnyCH068GQQKcJ+a8l8EO81xyvi69VZPDP1+f0oKtE0qjNRpZFZ712dtEKryun+LKwOAlyotOLkzOQ==", "review"=>{"book_id"=>"36", "goal_id"=>"47", "content"=>"This is a review", "rating"=>"2", "recommend"=>"1"}, "commit"=>"Submit Review"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (1.7ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mReview Create (1.8ms)[0m  [1m[32mINSERT INTO "reviews" ("goal_id", "book_id", "content", "rating", "recommend", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["goal_id", 47], ["book_id", 36], ["content", "This is a review"], ["rating", 2], ["recommend", 1], ["created_at", "2019-12-05 16:37:23.920614"], ["updated_at", "2019-12-05 16:37:23.920614"]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+Redirected to http://localhost:3000/books/36
+Completed 302 Found in 960ms (ActiveRecord: 32.2ms | Allocations: 8460528)
+
+
+Started GET "/books/36" for ::1 at 2019-12-05 11:37:24 -0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19:in `find_book'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mAuthor Load (2.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:2
+  [1m[36mReader Load (1.8ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mGoal Load (1.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 36], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Reader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.9ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 36], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mReview Load (1.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."goal_id" = ? LIMIT ?[0m  [["goal_id", 47], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:51:in `can_review?'
+  [1m[36mReview Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."book_id" = ? LIMIT ?[0m  [["book_id", 36], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:37
+  [1m[36mReview Load (6.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 36]]
+  ↳ app/views/books/show.html.erb:40
+  [1m[36mGoal Load (1.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:43
+  [1m[36mReader Load (2.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:43
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:43
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:43
+  Rendered books/show.html.erb within layouts/application (Duration: 1117.3ms | Allocations: 9196368)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Reader Load (0.6ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 1418ms (Views: 1267.6ms | ActiveRecord: 51.6ms | Allocations: 11421014)
+
+
+Started GET "/readers/50" for ::1 at 2019-12-05 11:37:40 -0500
+Processing by ReadersController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mReader Load (1.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/readers_controller.rb:51:in `find_reader'
+  Rendering readers/show.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:29:in `display_fav_book_by_id'
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:36:in `display_fav_author_by_id'
+  [1m[36mGoal Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:18
+  [1m[36mGoal Load (11.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ?[0m  [["reader_id", 50]]
+  ↳ app/views/readers/show.html.erb:33
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (11.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (10.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (2.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (4.0ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mCACHE Book Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mCACHE Author Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (7.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (3.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 67], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 67], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/views/readers/show.html.erb:35
+  [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/models/goal.rb:15:in `author'
+  Rendered readers/show.html.erb within layouts/application (Duration: 1532.0ms | Allocations: 11206732)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mReader Load (1.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 1808ms (Views: 1674.2ms | ActiveRecord: 79.1ms | Allocations: 13156976)
+
+
+Started GET "/books/60" for ::1 at 2019-12-05 11:37:48 -0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"60"}
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:19:in `find_book'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mAuthor Load (12.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:2
+  [1m[36mReader Load (10.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mGoal Load (1.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Reader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mReview Load (1.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."goal_id" = ? LIMIT ?[0m  [["goal_id", 44], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:51:in `can_review?'
+  Rendered application/_error_notice.html.erb (Duration: 0.7ms | Allocations: 13197)
+  [1m[36mCACHE Reader Load (0.3ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  Rendered reviews/_review_form.html.erb (Duration: 50.4ms | Allocations: 574598)
+  [1m[36mReview Exists? (11.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."book_id" = ? LIMIT ?[0m  [["book_id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:37
+  Rendered books/show.html.erb within layouts/application (Duration: 330.9ms | Allocations: 3602016)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Reader Load (0.8ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 538ms (Views: 452.3ms | ActiveRecord: 40.3ms | Allocations: 5381435)
+
+
+Started POST "/reviews" for ::1 at 2019-12-05 11:38:34 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"2R2Qd/fmi6CoPrqnWPswGLeiBWbPlk79cWflGxgm50sIiJqaNfF3Xq4VlIJsfoVeeJ64sRyr9yIRkIggm3kpLw==", "review"=>{"book_id"=>"60", "goal_id"=>"44", "content"=>"", "rating"=>"", "recommend"=>"0"}, "commit"=>"Submit Review"}
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (1.6ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+Completed 404 Not Found in 983ms (ActiveRecord: 40.5ms | Allocations: 8455367)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/reviews_controller.rb:13:in `create'
+Started POST "/reviews" for ::1 at 2019-12-05 11:39:14 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"HNIyu6bqJ0wclLcvSCftZ4ZYjpPoTMPWoNqR/TpwRGsRQ4uv0zJjvErincUq9IB6CWiOdpP8JaTqtQElVIZ7rw==", "review"=>{"book_id"=>"60", "goal_id"=>"44", "content"=>"", "rating"=>"", "recommend"=>"0"}, "commit"=>"Submit Review"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (1.8ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+Completed 404 Not Found in 1034ms (ActiveRecord: 32.6ms | Allocations: 8431596)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/reviews_controller.rb:13:in `create'
+Started POST "/reviews" for ::1 at 2019-12-05 11:40:04 -0500
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"HNIyu6bqJ0wclLcvSCftZ4ZYjpPoTMPWoNqR/TpwRGsRQ4uv0zJjvErincUq9IB6CWiOdpP8JaTqtQElVIZ7rw==", "review"=>{"book_id"=>"60", "goal_id"=>"44", "content"=>"", "rating"=>"", "recommend"=>"0"}, "commit"=>"Submit Review"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (13.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (3.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:13:in `create'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mAuthor Load (2.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:2
+  [1m[36mReader Load (3.8ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mGoal Load (16.7ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mCACHE Reader Load (0.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.5ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mReview Load (2.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."goal_id" = ? LIMIT ?[0m  [["goal_id", 44], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:51:in `can_review?'
+  Rendered application/_error_notice.html.erb (Duration: 38.6ms | Allocations: 247181)
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  Rendered reviews/_review_form.html.erb (Duration: 56.0ms | Allocations: 516190)
+  [1m[36mReview Exists? (16.7ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."book_id" = ? LIMIT ?[0m  [["book_id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:37
+  Rendered books/show.html.erb within layouts/application (Duration: 1190.9ms | Allocations: 8337953)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 2461ms (Views: 1280.9ms | ActiveRecord: 148.1ms | Allocations: 18423351)
+
+
+Started GET "/reviews" for ::1 at 2019-12-05 11:41:29 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/reviews"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/reviews" for ::1 at 2019-12-05 11:41:44 -0500
+Processing by ReviewsController#create as HTML
+  Parameters: {"authenticity_token"=>"HNIyu6bqJ0wclLcvSCftZ4ZYjpPoTMPWoNqR/TpwRGsRQ4uv0zJjvErincUq9IB6CWiOdpP8JaTqtQElVIZ7rw==", "review"=>{"book_id"=>"60", "goal_id"=>"44", "content"=>"", "rating"=>"", "recommend"=>"0"}, "commit"=>"Submit Review"}
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mGoal Load (3.1ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (17.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:13:in `create'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mAuthor Load (2.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:2
+  [1m[36mReader Load (2.0ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mGoal Load (2.8ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mCACHE Reader Load (0.9ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Reader Load (0.6ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  [1m[36mReview Load (3.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."goal_id" = ? LIMIT ?[0m  [["goal_id", 44], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:51:in `can_review?'
+  Rendered application/_error_notice.html.erb (Duration: 22.3ms | Allocations: 167738)
+  [1m[36mCACHE Reader Load (0.5ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `session_user'
+  [1m[36mCACHE Goal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? AND "goals"."book_id" = ? LIMIT ?[0m  [["reader_id", 50], ["book_id", 60], ["LIMIT", 1]]
+  ↳ app/models/reader.rb:46:in `goal_by_book'
+  Rendered reviews/_review_form.html.erb (Duration: 58.9ms | Allocations: 514552)
+  [1m[36mReview Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."book_id" = ? LIMIT ?[0m  [["book_id", 60], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:37
+  Rendered books/show.html.erb within layouts/application (Duration: 1251.3ms | Allocations: 8252948)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Reader Load (0.4ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."username" = ? LIMIT ?[0m  [["username", "kyle"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+Completed 200 OK in 2594ms (Views: 1383.7ms | ActiveRecord: 85.1ms | Allocations: 18098215)
+
+
