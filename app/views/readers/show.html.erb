@@ -5,13 +5,7 @@
 	<%= button_to "Delete My Profile", reader_path(@reader), method: 'delete' %> <!-- USER PROMPT -->
 <% end %>
 
-<h2>Real Name: <%= @reader.name %></h2>
-<p>Age: <%= @reader.age %>
-<p>Bio: <%= @reader.bio %></p>
-
-
-<p><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></p>
-<p><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></p>
+<%= render partial: 'reader_analytics' %>
 
 
 

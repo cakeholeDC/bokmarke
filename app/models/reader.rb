@@ -27,14 +27,14 @@ class Reader < ApplicationRecord
 	def display_fav_book_by_id
 		if self.fav_book
 			book = Book.find(self.fav_book)
-			"Favorite Book: "  + book.title
+			book.title
 		end
 	end
 
 	def display_fav_author_by_id
 		if self.fav_author
 			author = Author.find(self.fav_author)
-			"Favorite Author: " + author.name
+			author.name
 		end
 	end
 
@@ -62,7 +62,46 @@ class Reader < ApplicationRecord
 		end
 	end
 
+	def read
+		self.goals.where("status = true")
+	end
 
+
+	def unread
+		self.goals.where("status = false")
+	end
+
+	def number_pages_read
+		self.read.sum do |goal|
+			goal.book.page_count
+		end
+	end
+
+	def number_pages_unread
+		self.unread.sum do |goal|
+			goal.book.page_count
+		end
+	end
+
+	def number_reviews
+		self.reviews.count
+	end
+
+	def average_review_length
+		total = self.reviews.sum do |review|
+			review.content.length
+		end
+
+		total / self.reviews.length
+	end
+
+	def average_rating
+		total = self.reviews.sum do |review|
+			review.rating
+		end
+
+		total / self.reviews.length
+	end
 
 
 

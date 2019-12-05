@@ -32,4 +32,19 @@ class Book < ApplicationRecord
   	@googlebooks.uniq
   end
 
+  def times_read
+    self.goals.where("status = true").count
+  end
+
+  def times_unread
+    self.times_on_lists - self.times_read
+  end
+
+  def times_on_lists
+    self.goals.count
+  end
+
+  def number_of_favorites
+    Reader.all.where("fav_book = ?", self.id).count
+  end
 end
