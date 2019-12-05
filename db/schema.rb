@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_162602) do
+ActiveRecord::Schema.define(version: 2019_12_04_215941) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -54,7 +54,21 @@ ActiveRecord::Schema.define(version: 2019_12_04_162602) do
     t.string "password_digest"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "goal_id", null: false
+    t.integer "book_id", null: false
+    t.text "content"
+    t.integer "rating"
+    t.boolean "recommend"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["goal_id"], name: "index_reviews_on_goal_id"
+  end
+
   add_foreign_key "books", "authors"
   add_foreign_key "goals", "books"
   add_foreign_key "goals", "readers"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "goals"
 end

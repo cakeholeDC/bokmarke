@@ -1,15 +1,15 @@
 <h1><%= @book.title %></h1>
 <h2><%= link_to @book.author.name, author_path(@book.author) %></h2>
 <img src="<%= @book.img %>">
-<h4><%= @book.category %></h4>
-<h4><%= @book.page_count %></h4>
+<h4>Category: <%= @book.category %></h4>
+<h4><%= @book.page_count %> Pages</h4>
 <p><%= @book.description %></p>
 
 
 
-<% if is_logged_in? %>
+<% if is_logged_in? %> <%# && !session_user.goals.book_id.include?(id: @book.id) %>
 	<%= form_for @goal do |f| %>
-		<%= f.hidden_field :reader_id, value: Reader.find_by(username: session[:username]).id %>
+		<%= f.hidden_field :reader_id, value: session_user.id %>
 		<%= f.hidden_field :book_id, value: params[:id] %>
 		<div>
 			<%= f.label "Already Read" %>
@@ -19,4 +19,6 @@
 		</div>
 		<%= f.submit "Add to Reading List" %>
 	<% end %>
+<% else %>
+	<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) %></p>
 <% end %>

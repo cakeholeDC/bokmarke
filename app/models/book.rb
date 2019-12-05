@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   belongs_to :author
   has_many :goals
   has_many :readers, through: :goals
+  has_many :reviews
 
   def self.create_books_from_google(results)
   	@googlebooks = []

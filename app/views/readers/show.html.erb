@@ -55,7 +55,7 @@
 				<% if is_current_profile? %>
 					<td>
 						<% if goal.status %>
-							<%#= button_to "Leave Review", reviews_path, method: "get" %>
+							<%= button_to "Leave Review", new_review_path, method: "get" %>
 						<% else %>
 							<%= button_to "Finished Book", update_status_path(goal), method: "patch" %>
 						<% end %>

@@ -1,0 +1,17 @@
+<%= form_for @review do |f| %>
+	<div>
+		<%= f.label :content  %>
+		<%= f.text_area :content %>
+	</div>
+	<div>
+		<%= f.label :rating %>
+		<%= f.number_field :rating %>
+	</div>
+	<div>
+		<%= f.label :recommend, "Recommended?" %>
+		<%= f.check_box :recommend %>
+	</div>
+	<div>
+		<%= f.submit "Leave Review" %>
+	</div>
+<% end %>

@@ -1,6 +1,7 @@
 class Goal < ApplicationRecord
   belongs_to :reader
   belongs_to :book
+  has_one :review
 
   def check_if_true
   	if self.status

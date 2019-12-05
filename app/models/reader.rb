@@ -1,6 +1,7 @@
 class Reader < ApplicationRecord
 	has_many :goals
 	has_many :books, through: :goals
+	has_many :reviews, through: :goals
 
 	validates :username, :name, presence: true
 	validates :username, uniqueness: true
@@ -37,9 +38,9 @@ class Reader < ApplicationRecord
 		end
 	end
 
-	def self.find_by_username(username)
-		Reader.find_by(username: username)
-	end
+	# def self.session_user
+	# 	Reader.find_by(username: session[:username]) #unless !session[:username]
+	# end
 
 
 end

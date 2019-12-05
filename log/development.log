@@ -8457,3 +8457,36 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.0ms | Allocations: 4507)
 
 
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (20191204215941)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "goal_id" integer NOT NULL, "book_id" integer NOT NULL, "content" text, "rating" integer, "recommend" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_77aa399be5"
+FOREIGN KEY ("goal_id")
+  REFERENCES "goals" ("id")
+, CONSTRAINT "fk_rails_924a0b30ca"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_goal_id" ON "reviews" ("goal_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_book_id" ON "reviews" ("book_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191204215941"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReader Load (0.1ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" ORDER BY "readers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGoal Load (0.4ms)[0m  [1m[34mSELECT "goals".* FROM "goals" ORDER BY "goals"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" INNER JOIN "goals" ON "readers"."id" = "goals"."reader_id" WHERE "goals"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" INNER JOIN "goals" ON "reviews"."goal_id" = "goals"."id" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 11]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" INNER JOIN "goals" ON "reviews"."goal_id" = "goals"."id" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 11]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" INNER JOIN "goals" ON "reviews"."goal_id" = "goals"."id" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" ORDER BY "goals"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReader Load (0.2ms)[0m  [1m[34mSELECT "readers".* FROM "readers" WHERE "readers"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[36mGoal Load (0.3ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 11]]
+  [1m[36mGoal Load (0.2ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."reader_id" = ? LIMIT ?[0m  [["reader_id", 50], ["LIMIT", 11]]

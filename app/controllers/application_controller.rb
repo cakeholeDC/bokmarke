@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :is_current_profile?, :is_logged_in?
+	helper_method :is_current_profile?, :is_logged_in?, :session_user
 
 	def home
 		render :home
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
 
 	def is_logged_in?
 		session.include?(:username)
+	end
+
+	def session_user
+		Reader.find_by(username: session[:username]) #unless !session[:username]
 	end
 end
