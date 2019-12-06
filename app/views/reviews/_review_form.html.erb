@@ -3,11 +3,11 @@
 	<%= f.hidden_field :goal_id, value: goal %>
 
 	<div>
-		<%= f.label :content  %>
-		<%= f.text_area :content %>
+		<%= f.label :content, class: "label"  %>
+		<%= f.text_area :content, class: "textarea" %>
 	</div>
 	<div>
-		<%= f.label :rating %>
+		<%= f.label :rating, class: "label" %>
 		<%= f.label "1" %>
 		<%= f.radio_button :rating, 1 %>
 		<%= f.label "2" %>
@@ -20,11 +20,13 @@
 		<%= f.radio_button :rating, 5 %>
 	</div>
 	<div>
-		<%= f.label :recommend, "Recommended?" %>
-		<%= f.check_box :recommend %>
+		<%= f.label :recommend, "Recommended?", class: "checkbox" %>
+		<%= f.check_box :recommend, class: "checkbox" %>
 	</div>
 	<div>
-		<%= f.submit submit_text, class: "tag is-link is-normal" %>
+
+		<%= f.submit submit_text, class: "button is-link is-success" %>
+
 	</div>
 <% end %>
 

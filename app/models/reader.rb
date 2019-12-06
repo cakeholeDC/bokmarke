@@ -91,8 +91,9 @@ class Reader < ApplicationRecord
 		total = self.reviews.sum do |review|
 			review.content.length
 		end
-
-		total / self.reviews.length
+		if self.reviews.length !=0
+			total / self.reviews.length
+		end
 	end
 
 	def average_rating
