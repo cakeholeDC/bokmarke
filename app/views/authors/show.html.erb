@@ -1,9 +1,36 @@
-<h1><%= @author.name %></h1>
-<!-- <img src="<%#= @author.img %>"> -->
-<p><%= @author.bio %></p>
-
-<ul>
-	<% @author.books.each do |book| %>
-		<li><%= link_to book.title, book_path(book) %></li>
-	<% end %>
-</ul>
+<div class="tile is-ancestor container">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+    	<!-- <p class="title">Books</p> -->
+		<figure class="image is-4by5">
+            <img src="https://source.unsplash.com/1200x1500/?author,writer">
+          </figure>
+  	</div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">
+		<%= @author.name %>
+      </p>
+      <p>
+      	<%= @author.bio %>	
+  	  </p>
+  	</div>
+  </div>
+</div>
+<div class="tile is-ancestor container">
+	<div class="tile is-vertical is-parent">
+	    <div class="tile is-child box">
+	    	<p class="title level-item">Books</p>
+			<div class="content container">
+				<ul class="content">
+					<% @author.books.each do |book| %>
+						<li>
+							<%= link_to book.title, book_path(book) %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+	  	</div>
+  </div>
+</div>

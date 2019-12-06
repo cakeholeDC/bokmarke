@@ -1,18 +1,17 @@
-<div class="bg-img hero is-fullheight">
-  <!-- <section class="hero is-info is-bold is-medium">
-    <div class="hero-body">
+<section class="hero is-large">
+  <div class="hero-body">
+    <div class="container">
+      <div class="level-item level" >
+      	<%= image_tag "bokmarke_logo_white.png", id: 'home_logo' %>
+      </div>
       <div class="container">
-        <h1 class="title">
-        	Welcome to Bokmärke.
-  	  </h1>
-        <h2 class="subtitle">
-          <em>"the world's greatest book tracking platform" -<%#= Author.all.sample.name %></em>
-        </h2>
+        <h1 class="content title level-item has-text-white-bis  ">
+          <!-- Welcome to Bokmärke. -->
+          <em>"the world's greatest book tracking platform" -<%= Author.all.sample.name %></em>
+        </h1>
       </div>
     </div>
-  </section> -->
-
-  <div class="level-item level" >
-  	<%= image_tag "bokmarke_logo.png", id: 'home_logo', class: "is-three-fifths" %>
   </div>
-</div>
+</section>
+
+

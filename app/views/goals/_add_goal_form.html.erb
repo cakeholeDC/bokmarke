@@ -1,11 +1,14 @@
 <%= form_for @goal do |f| %>
 	<%= f.hidden_field :reader_id, value: session_user.id %>
 	<%= f.hidden_field :book_id, value: params[:id] %>
-	<div>
-		<%= f.label "Already Read" %>
-		<%= f.radio_button :status, true %>
-		<%= f.label "Want to Read" %>
-		<%= f.radio_button :status, false %>
+	<div class="radio" >
+		<%= f.label "Already Read", class: "radio" %>
+		<%= f.radio_button :status, true, class: "radio"  %>
+		<%= f.label "Want to Read", class: "radio"  %>
+		<%= f.radio_button :status, false, class: "radio"  %>
 	</div>
-	<%= f.submit "Add to Reading List" %>
+	<div class="container level-item">
+		<p>&nbsp;</p>
+		<%= f.submit "Add to Reading List", class: "button is-link is-small" %>
+	</div>
 <% end %>

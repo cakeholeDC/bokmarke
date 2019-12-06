@@ -54,7 +54,7 @@
 
         <div class="navbar-end">
           <% if session[:username] %>
-              <div class="navbar-item has-dropdown is-hoverable">
+              <div class="navbar-item has-dropdown is-hoverable level-left">
                 <a class="navbar-link">
                   <%= session[:username] %>
                 </a>
@@ -75,13 +75,19 @@
               </a>
           <% end %>
 
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-success" href="readers/new">
-                <strong>Sign up</strong>
-              </a>
+            <div class="navbar-item">
+              <div class="buttons">
+                <% if !session[:username] %>
+                <a class="button is-success" href="readers/new">
+                  <strong>Sign up</strong>
+                </a>
+              <% else %>
+                <div class="content">
+                  <p class="has-text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </div>
+              <% end %>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </nav>
@@ -111,38 +117,22 @@
       <!-- </div> -->
     <!-- </nav> -->
 
-
-    <!-- BOOTSTRAP NAV BAR -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Bokmärke</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto d-flex justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link" href="/books">Books</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/authors">Authors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/readers">Readers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=<%#= "/readers/" + session_user.id.to_s %>><%#= session[:username] %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">(Logout)</a>
-          </li>
-
-        </ul>
+    <div class="bg-img hero is-fullheight">
+      <div class="columns is-desktop is-centered">
+        <div class="column is-half">
+          <%= render partial: 'add_space' %>
+            <%= yield %>
+          <%= render partial: 'add_space' %>
+        </div>
       </div>
-    </nav> -->
 
-      <%= yield %>
-
-
+    </div>
   </body>
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bokmärke</strong> by <a href="/">Sara Tarnvik</a> & <a href="https://kylepcole.com">Kyle Cole</a> ©2019
+    </p>
+  </div>
+</footer>
 </html>

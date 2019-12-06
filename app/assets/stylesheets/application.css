@@ -41,7 +41,7 @@ ul {
 }
 
 .bg-img { 
-        background-image: url("bokmarke_background_grayscale.jpg");
+        background-image: url("bokmarke_background_grayscale_darker.jpg");
         background-position: center center;
         background-repeat:  no-repeat;
         background-attachment: fixed;

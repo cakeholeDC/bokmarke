@@ -1,16 +1,21 @@
-<section class="hero is-primary  is-normal">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-      	About Bokmärke.
-	  </h1>
-      <h2 class="subtitle">
-        <em>"the world's greatest book tracking platform" -<%= Author.all.sample.name %></em>
-      </h2>
-    </div>
+<div class="tile is-ancestor container">
+  <div class="tile is-vertical is-parent">
+      <div class="tile is-child box">
+        <p class="title level-item">About Bokmärke</p>
+      <div class="content container">
+        <p class="content">
+          Bokmärke is the world's greatest book tracking platform. Use the <a href="/books/"><em>Books</em></a> module to search for a book by title or author. Once you've found your book you may add it to your reading list.
+        </p>
+        <p>
+          Books on your reading list have a status of either <em>In Progress</em> or <em>Finsihed</em>—Click the button to toggle the status of your book. Each book may only be added to your reading list once.
+        </p>
+        <p>
+          Once you've completed a book, you will have the ability to leave a review, add a rating, and recommend the book to other readers. You may only leave one review per book. Reviews may be edited.
+        </p>
+        <p class="content">
+          Bokmärke is the Swedish work for Bookmark.
+        </p>
+      </div>
+      </div>
   </div>
-</section>
-
-<div class="level-item level" >
-	<%= image_tag "bokmarke_logo.png", id: 'home_logo', class: "is-three-fifths" %>
 </div>

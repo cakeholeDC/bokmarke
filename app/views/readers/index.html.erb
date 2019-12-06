@@ -1,20 +1,24 @@
-<h1>All Readers</h1>
-<%#= button_to "New Reader", new_reader_path, method: "get" %>
-
-<% if flash[:error] %>
-	<div class="error-message"><%= flash[:error] %></div>
-<% end %>
-
-
-<%= form_tag readers_path, method: 'get' do %>
-	<%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Search" %>
-<% end %>
-
-<br>
-<%= button_to "Random Reader", reader_path(Reader.all.sample), method: "get" %>
-<ul>
-	<% @readers.each do |reader| %>
-		<li><%= link_to reader.username, reader_path(reader) %></li>
-	<% end %>
-</ul>
+<div class="tile is-ancestor container">
+	<div class="tile is-vertical is-parent">
+	    <div class="tile is-child box">
+	    	<p class="title level-item">
+	    		All Readers
+	    	</p>
+	    	<div class="content container">
+				<%= render partial: 'application/flash_error' %>
+				<%= form_tag readers_path, method: 'get' do %>
+					<%= text_field_tag :search, params[:search] %>
+					<%= submit_tag "Search" %>
+				<% end %>
+				<%= button_to "Random Reader", reader_path(Reader.all.sample), method: "get" %>
+			</div>
+	    	<div class="content container">
+				<ul>
+					<% @readers.each do |reader| %>
+						<li><%= link_to reader.username, reader_path(reader) %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

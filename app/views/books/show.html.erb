@@ -1,78 +1,110 @@
-<section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-      	<%= @book.title %>
-  	</h1>
-	<h2 class="subtitle">
-		<%= link_to @book.author.name, author_path(@book.author) %>
-	      </h2>
-    </div>
+<div class="tile is-ancestor container">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+    	<!-- <p class="title">Books</p> -->
+		<figure class="image is-4by5">
+            <img src="<%= @book.img %>">
+          </figure>
+  	</div>
   </div>
-</section>
-
-
-<div class="columns">
-	<div class="column is-half">
-
-		<section class="section">
-			<div class="container">
-				<img src="<%= @book.img %>" class="level-item">
-			</div>
-		</section>
-
-	</div>
-	<div class="column">
-		<section class="section">
-			<div class="container">
-				<%= render partial: "books/book_analytics" %>
-		    </div>
-		</section>
-	</div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">
+		<%= @book.title %>
+      </p>
+      <p class="subtitle">
+      	<%= link_to @book.author.name, author_path(@book.author) %>	
+  	  </p>
+  	</div>
+  </div>
 </div>
 
-<p><%= @book.description %></p>
 
-
+<div class="tile is-ancestor container">
+	<div class="tile is-vertical is-parent">
+	    <div class="tile is-child box">
+	    	<p class="title level-item">Description</p>
+			<div class="content container">
+				<p><%= @book.description %></p>
+			</div>
+	  	</div>
+  </div>
+</div>
+<div class="tile is-ancestor container">
+	<div class="tile is-vertical is-parent">
+	    <div class="tile is-child box">
+	    	<p class="title level-item">Stats</p>
+			<div class="content container">
+				<p>
+					<%= render partial: "books/book_analytics" %>
+				</p>
+			</div>
+	  	</div>
+  </div>
+</div>
 
 <% if is_logged_in? && session_user.can_add_to_reading_list?(@book)%>
-	<%= render partial:"goals/add_goal_form" %>
-
-	<% elsif is_logged_in? %>
-		<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) , class: "tag is-link is-normal"%></p>
-
+	<div class="tile is-ancestor container">
+		<div class="tile is-vertical is-parent">
+		    <div class="tile is-child box">
+		    	<p class="title level-item">Add to Reading List</p>
+				<div class="content container level-item">
+					<%= render partial:"goals/add_goal_form" %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% elsif is_logged_in? %>
+	<div class="tile is-ancestor container">
+		<div class="tile is-vertical is-parent">
+		    <div class="tile is-child box">
+		    	<p class="title level-item">Add to Reading List</p>
+		    	<p class="content container level-item">
+		    		This book is in your reading list.&nbsp;
+		    		<%= link_to "View Reading List", reader_path(session_user.id) , class: "tag is-link is-normal"%>
+	    		</p>
+	    	</div>
+	    </div>
+	</div>
 <% end %>
 
-<a name="review" ></a>
 
-<% if is_logged_in? && session_user.can_review?(@book)%>
-	<h3>Leave a Review </h3>
-	<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
-	<%= render partial:'reviews/review_form', locals: {book: @book.id, goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
-<%end%>
-
-<h3>Reviews</h3>
-
-<% if @book.reviews.any? %>
-	<table class="table">
-
-	<% @book.reviews.reverse.each do |review| %>
-		<tr>
-			<td>
-				<div>User: <%= review.goal.reader.username %></div>
-				<div>Date: <%= review.created_at.strftime("%b %-d, %Y")%></div>
-				<% if session_user == review.reader %>
-					<div><%= button_to "Edit Review", edit_review_path(review), method: "get", class: "tag is-link is-normal" %></div>
+<div class="tile is-ancestor container">
+	<div class="tile is-vertical is-parent">
+	    <div class="tile is-child box">
+	    	<p class="title level-item">Reviews</p>
+	    	<a name="review" ></a>
+			<div class="content container">
+				<% if is_logged_in? && session_user.can_review?(@book)%>
+					<h3>Leave a Review </h3>
+					<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
+					<%= render partial:'reviews/review_form', locals: {book: @book.id, goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
+				<%end%>
+				<% if @book.reviews.any? %>
+					<div class="content container">
+					<table class="table">
+						<% @book.reviews.reverse.each do |review| %>
+							<tr>
+								<td>
+									<div>User: <%= review.goal.reader.username %></div>
+									<div>Date: <%= review.created_at.strftime("%b %-d, %Y")%></div>
+									<% if session_user == review.reader %>
+										<div><%= button_to "Edit Review", edit_review_path(review), method: "get", class: "tag is-link is-normal" %></div>
+									<% end %>
+								</td>
+								<td>
+									<div>Rating: <%= review.rating %></div>
+									<div><%= review.content %></div>
+									<div><em><%= review.is_recommended? %></em></div>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+					</div>
+				<% else %>
+					<p class="level-item">This book has not been reviewed yet!</p>
 				<% end %>
-			</td>
-			<td">
-				<div>Rating: <%= review.rating %></div>
-				<div><%= review.content %></div>
-				<div>Recommended? <%= review.recommend %></div>
-			</td>
-		</tr>
-	<% end %>
-	</table>
-<% else %>
-	<p>This book has not been reviewed yet!</p>
-<% end %>
+			</div>
+	  	</div>
+  </div>
+</div>

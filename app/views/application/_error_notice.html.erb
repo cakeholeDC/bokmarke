@@ -1,7 +1,13 @@
 <% if new_object.errors.any? %>
-	<ul class="alert alert-danger">
-		<% new_object.errors.full_messages.each do |error| %>
-			<li><%= error %></li>
-		<% end %>
-	</ul>
+	<section class="section">
+	    <div class="container">
+			<article class="message is-danger">
+				<ul class="alert alert-danger">
+					<% new_object.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<% end %>
+				</ul>
+			</article>
+		</div>
+	</section>
 <% end %>

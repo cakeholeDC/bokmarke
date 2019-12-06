@@ -1,0 +1,34 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Status</th>
+			<th>Date Updated</th>
+			<% if is_current_profile? %>
+				<th>Actions</th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<%@reader.sorted_goals.each do |goal| %>
+		<tr>
+			<td><%= link_to goal.book.title, book_path(goal.book) %></td>
+			<td><%= link_to goal.author.name, author_path(goal.author) %></td>
+			<td><%= goal.check_if_true %></td>
+			<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
+			<% if is_current_profile? %>
+				<td>
+					<% if goal.status && !goal.review %>
+						<%= button_to "Leave Review", "/books/#{goal.book_id}/#review", method: "get", class: "tag is-link is-normal" %>
+					<% elsif goal.review %>
+						<%= button_to "View Review", "/books/#{goal.book_id}/#review", method: "get", class: "tag is-link is-normal" %>
+					<% else %>
+						<%= button_to "Finished Book", update_status_path(goal), method: "patch", class: "tag is-link is-success" %>
+					<% end %>
+					<%= button_to "Remove Book", goal_path(goal), method: "delete", class: "tag is-danger is-normal" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
