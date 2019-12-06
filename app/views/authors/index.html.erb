@@ -1,5 +1,6 @@
 <h1>All Authors</h1>
 
+<!-- @TODO class error? -->
 <% if flash[:error] %>
 	<div class="error-message"><%= flash[:error] %></div>
 <% end %>
@@ -13,8 +14,10 @@
 <br>
 <%= button_to "Random Author", author_path(Author.all.sample), method: "get" %>
 
-<ul>
-	<% @authors.each do |author| %>
-		<li><%= link_to author.name, author_path(author) %></li>
-	<% end %>
-</ul>
+<div class="content">
+	<ul>
+		<% @authors.each do |author| %>
+			<li><%= link_to author.name, author_path(author) %></li>
+		<% end %>
+	</ul>
+</div>

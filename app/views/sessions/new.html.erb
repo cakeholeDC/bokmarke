@@ -1,16 +1,36 @@
-<h1>Log In</h1>
+<section class="hero is-info is-bold is-normal">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+      	Bokmärke.
+	  </h1>
+      <h2 class="subtitle">
+        <em>"the world's greatest book tracking platform" -<%= Author.all.sample.name %></em>
+      </h2>
+    </div>
+  </div>
+</section>
 
 <% if flash[:error] %>
-	<div class="error-message"><%= flash[:error] %></div>
+<section class="section">
+    <div class="container">
+	<article class="message is-danger">
+	  <div class="message-body"><%= flash[:error] %></div>
+	</article>
+</div>
+</section>
 <% end %>
 
+<section class="section">
+    <div class="container">
 <%= form_tag '/login' do %>
 	<%= label_tag :username %>
 	<%= text_field_tag :username %>
 	<%= label_tag :password %>
 	<%= password_field_tag :password %>
-	<%= submit_tag "Login" %>
+	<%= submit_tag "Login",  class: "tag is-link is-medium" %>
 <% end %>
 
-
-<%= button_to "Create an Account", new_reader_path, method: 'get' %>
+<%= button_to "Create an Account", new_reader_path, method: 'get', class: "tag is-link is-medium" %>
+</div>
+</section>
