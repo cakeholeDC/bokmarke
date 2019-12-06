@@ -1,4 +1,11 @@
 <h1>Edit Review</h1>
 
-<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
-<%= render partial: "review_form", locals: {book: @review.book_id, goal: @review.goal_id, submit_text: "Edit Review"}%>
+
+
+
+<div class="container box">
+	<p class="title level-item">Edit Review</p>
+	<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
+	<%= render partial: "review_form", locals: {book: @review.book_id, goal: @review.goal_id, submit_text: "Edit Review"}%>
+
+</div>
