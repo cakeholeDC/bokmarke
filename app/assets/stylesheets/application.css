@@ -13,12 +13,29 @@
  *= require_tree .
  *= require_self
  */
-body {
-	text-align: center;
-	margin: auto;
-	width: 80%;
-}
-
- .field_with_errors input {
+/*
+ .field_with_errors input, 
+ .field_with_errors textarea {
     background-color: red;
+    display: inline;
+}
+/*.error-message {
+	color: red;
+}*/
+/*
+ul {
+	list-style: none;
+}*/
+
+/*#test {
+	background-color: magenta;
+}*/\
+/*nav .navbar {
+	border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}*/
+
+#home_logo {
+	margin-top: 10px;
 }

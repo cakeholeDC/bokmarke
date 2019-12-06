@@ -1,8 +1,35 @@
-<h1><%= @book.title %></h1>
-<h2><%= link_to @book.author.name, author_path(@book.author) %></h2>
-<img src="<%= @book.img %>">
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+      	<%= @book.title %>
+  	</h1>
+	<h2 class="subtitle">
+		<%= link_to @book.author.name, author_path(@book.author) %>
+	      </h2>
+    </div>
+  </div>
+</section>
 
-<%= render partial: "book_analytics" %>
+
+<div class="columns">
+	<div class="column is-half">
+
+		<section class="section">
+			<div class="container">
+				<img src="<%= @book.img %>" class="level-item">
+			</div>
+		</section>
+
+	</div>
+	<div class="column">
+		<section class="section">
+			<div class="container">
+				<%= render partial: "books/book_analytics" %>
+		    </div>
+		</section>
+	</div>
+</div>
 
 <p><%= @book.description %></p>
 
@@ -12,7 +39,7 @@
 	<%= render partial:"goals/add_goal_form" %>
 
 	<% elsif is_logged_in? %>
-		<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) %></p>
+		<p>This book is in your reading list. <%= link_to "View Reading List", reader_path(session_user.id) , class: "tag is-link is-normal"%></p>
 
 <% end %>
 
@@ -21,21 +48,24 @@
 <% if session_user.can_review?(@book)%>
 	<h3>Leave a Review </h3>
 	<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
-	<%= render partial:'reviews/review_form', locals: {book: params[:id], goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
+	<%= render partial:'reviews/review_form', locals: {book: @book.id, goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
 <%end%>
 
 <h3>Reviews</h3>
 
 <% if @book.reviews.any? %>
-	<table>
+	<table class="table">
 
 	<% @book.reviews.reverse.each do |review| %>
 		<tr>
 			<td>
 				<div>User: <%= review.goal.reader.username %></div>
 				<div>Date: <%= review.created_at.strftime("%b %-d, %Y")%></div>
+				<% if session_user == review.reader %>
+					<div><%= button_to "Edit Review", edit_review_path(review), method: "get", class: "tag is-link is-normal" %></div>
+				<% end %>
 			</td>
-			<td>
+			<td">
 				<div>Rating: <%= review.rating %></div>
 				<div><%= review.content %></div>
 				<div>Recommended? <%= review.recommend %></div>

@@ -1,4 +1,15 @@
-<h1><%= @reader.username %></h1>
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+      	<%= @reader.username %>
+      </h1>
+      <h2 class="subtitle">
+        Primary subtitle
+      </h2>
+    </div>
+  </div>
+</section>
 
 <% if is_current_profile? %>
 	<%= button_to "Edit My Profile", edit_reader_path(@reader), method: 'get' %>
@@ -32,8 +43,10 @@
 				<td><%= goal.updated_at.strftime("%b %-d, %Y")%></td>
 				<% if is_current_profile? %>
 					<td>
-						<% if goal.status %>
+						<% if goal.status && !goal.review %>
 							<%= button_to "Leave Review", "/books/#{goal.book_id}/#review", method: "get" %>
+						<% elsif goal.review %>
+							<%= button_to "View Review", "/books/#{goal.book_id}/#review", method: "get" %>
 						<% else %>
 							<%= button_to "Finished Book", update_status_path(goal), method: "patch" %>
 						<% end %>

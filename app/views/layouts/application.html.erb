@@ -7,24 +7,138 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- BOOTSTRAP -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <!-- BULMA -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", home_path %> /
-      <%= link_to "Books", books_path %> /
-      <%= link_to "Authors", authors_path %> /
-      <%= link_to "Readers", readers_path %> /
-      <% if session[:username] %>
-        <%= link_to "#{session[:username]}'s Profile", reader_path(Reader.find_by(username: session[:username])) %> /
-        <%= link_to "Log Out", logout_path, method: 'delete' %>
-      <% else %>
-        <%= link_to "Log in", login_path %>
-      <% end %>
+    <!-- BULMA NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <%= image_tag "bokmarke_logo.png" %>
+        </a>
 
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+
+          <a class="navbar-item" href="/books">
+            Books
+          </a>
+
+          <a class="navbar-item" href="/authors">
+            Authors
+          </a>
+
+          <a class="navbar-item" href="/readers">
+            Readers
+          </a>
+
+        </div>
+
+        <div class="navbar-end">
+          <% if session[:username] %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  <%= session[:username] %>
+                </a>
+
+                  <div class="navbar-dropdown">
+                    <a class="navbar-item" href=<%= "/readers/" + session_user.id.to_s %>>
+                      View Profile
+                    </a>
+                    <a class="navbar-item" href="/logout">
+                      Logout
+                    </a>
+                  </div>
+
+              </div>
+          <% else %>
+              <a class="navbar-item" href="/login">
+                Login
+              </a>
+          <% end %>
+
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-success" href="readers/new">
+                <strong>Sign up</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
-    <%= yield %>
+
+
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+    <!-- <nav class="nav justify-content-center"> -->
+      <!-- <a class="navbar-brand" href="/">Bokmärke</a> -->
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> -->
+        <!-- <span class="navbar-toggler-icon"></span> -->
+      <!-- </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+        <!-- <div class="navbar-nav"> -->
+          <%#= link_to "Home", home_path, :html => { class: "nav-item nav-link" } %>
+          <%#= link_to "Books", books_path, :html => { class: "nav-link" } %>
+          <%#= link_to "Authors", authors_path, :html => { class: "nav-link" } %>
+          <%#= link_to "Readers", readers_path, :html => { class: "nav-link" } %>
+          <%# if session[:username] %>
+            <%#= link_to "#{session[:username]}", reader_path(Reader.find_by(username: session[:username])), :html => { class: "nav-link" } %>
+            <%#= link_to "Log Out", logout_path, method: 'delete', :html => { class: "nav-link" } %>
+          <%# else %>
+            <%#= link_to "Log in", login_path, :html => { class: "nav-link" } %>
+          <%# end %>
+      <!-- </div> -->
+    <!-- </nav> -->
+
+
+    <!-- BOOTSTRAP NAV BAR -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Bokmärke</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto d-flex justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/authors">Authors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/readers">Readers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<%#= "/readers/" + session_user.id.to_s %>><%#= session[:username] %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">(Logout)</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav> -->
+
+      <%= yield %>
+
 
   </body>
 </html>

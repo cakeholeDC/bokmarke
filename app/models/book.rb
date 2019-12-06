@@ -47,4 +47,16 @@ class Book < ApplicationRecord
   def number_of_favorites
     Reader.all.where("fav_book = ?", self.id).count
   end
+
+  def average_rating
+    total = self.reviews.sum do |review|
+      review.rating
+    end
+
+    if self.reviews.length != 0
+      total / self.reviews.length
+    else
+      "No"
+    end
+  end
 end

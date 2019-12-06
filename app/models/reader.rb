@@ -100,7 +100,11 @@ class Reader < ApplicationRecord
 			review.rating
 		end
 
-		total / self.reviews.length
+		if self.reviews.length != 0
+			total.to_f / self.reviews.length
+		else
+			"No"
+		end
 	end
 
 
