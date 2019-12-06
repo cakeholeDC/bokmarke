@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 			redirect_to book_path(@review.book)
 		else
 			@book = Book.find(@review.book_id)
-			render "books/show"
+			render "books/show" #+ "#review"
 		end
 	end
 
