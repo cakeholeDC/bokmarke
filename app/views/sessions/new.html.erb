@@ -1,15 +1,14 @@
-<section class="hero is-info is-bold is-normal">
+<section class="hero is-normal">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-      	Bokmärke.
-	  </h1>
-      <h2 class="subtitle">
-        <em>"the world's greatest book tracking platform" -<%= Author.all.sample.name %></em>
-      </h2>
     </div>
   </div>
 </section>
+
+<div class="container box">
+  <p class="title level-item">Login</p>
+
+
 
 <% if flash[:error] %>
 <section class="section">
@@ -21,16 +20,63 @@
 </section>
 <% end %>
 
-<section class="section">
-    <div class="container">
-<%= form_tag '/login' do %>
-	<%= label_tag :username %>
-	<%= text_field_tag :username %>
-	<%= label_tag :password %>
-	<%= password_field_tag :password %>
-	<%= submit_tag "Login",  class: "tag is-link is-medium" %>
-<% end %>
 
-<%= button_to "Create an Account", new_reader_path, method: 'get', class: "tag is-link is-medium" %>
+
+<div class="field">
+  <%= form_tag '/login' do %>
+    <div class="field">
+    	<%= label_tag :username, "Username", class: "label"%>
+      <div class= "control has-icons-left">
+    	   <%= text_field_tag :username, nil, class: "input" %>
+         <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+    	<%= label_tag :password, "Password", class: "label" %>
+      <div class= "control has-icons-left">
+         <%= password_field_tag :password, nil, class: "input" %>
+         <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+    	<%= submit_tag "Login", class: "button is-link is-success is-level"%>
+    </div>
+  <% end %>
+</div>
+
+<p>OR</p>
+<br>
+
+
+<%= button_to "Create an Account", new_reader_path, method: 'get', class: "button is-link is-normal" %>
 </div>
 </section>
+
+</div>
+
+
+
+
+<!--     <div class="field">
+      <%#= f.label :username, class: "label"%>
+      <div class="control has-icons-left has-icons-right">
+        <%#= f.text_field :username, class: "input"%>
+        <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span> 
+      </div>     
+    </div>
+
+    <div class="field">
+      <%#= f.label :password , class: "label"%>
+      <div class="control has-icons-left has-icons-right">
+        <%#= f.password_field :password, class: "input" %>
+        <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span> 
+          </div>
+    </div> -->

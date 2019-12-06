@@ -1,31 +1,49 @@
-<section class="hero is-info is-bold">
+<section class="hero">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-      	Find Books
-      </h1>
     </div>
   </div>
 </section>
 
-
 <!-- @TODO radios? default to title -->
-<select name='type'>
-	<option value='title'>Search by Title</option>
-	<option value='author'>Search by Author</option>
-</select>
-<%= form_tag books_path do %>
-	<%= text_field_tag :search %>
-	<%= submit_tag "Search" , class: "tag is-link is-normal"%>
-<% end %>
+	<div class="container field has-addons has-addons-centered">
+		<p class="control">
+			<span class="select">
+				<select name='type'>
+					<option value='title'>Search by Title</option>
+					<option value='author'>Search by Author</option>
+				</select>
+			</span>
+		</p>
+		<p class="control">
+			<%= form_tag books_path do %>
+				<%= text_field_tag :search, nil, class: "input" %>
+				<%= submit_tag "Search" , class: "button is-success", id: "book_search"%>
+			<% end %>
+		</p>
+	</div>
+	<br>
+	<div class="container level-item"><%= button_to "Random Book", book_path(Book.all.sample.id), method: "get", class: "button is-link " %></div>
 
-<br>
-<%= button_to "Random Book", book_path(Book.all.sample.id), method: "get", class: "tag is-link is-normal" %>
+	<br>
 
 <% if @books %>
-	<ul>
-		<% @books.each do |book| %>
-			<li><%= link_to book.title, book_path(book) %></li>
-		<% end %>
-	</ul>
+	<div class="tile is-ancestor container">
+		<div class="tile is-vertical is-parent">
+		    <div class="tile is-child box">
+		    	<p class="title level-item">
+		    		Book Results
+	    		</p>
+		    	<div class="content container">
+					<ul>
+						<% @books.each do |book| %>
+							<li><%= link_to book.title, book_path(book) %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 <% end %>
+
+

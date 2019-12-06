@@ -1,3 +1,29 @@
-<h1>Edit <%= @reader.username %></h1>
 
-<%= render partial: 'reader_form', locals: { submit_text: "Edit Reader" } %>
+
+
+
+
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+		</div>
+	</div>
+</section>
+
+<%= render partial: 'application/error_notice', locals: { new_object: @reader } %>
+
+<!-- <div class="container">
+	
+</div> -->
+<div class="container box">
+	<p class="title level-item">Edit Account</p>
+	<%= render partial: 'reader_form', locals: { submit_text: "Edit Reader" } %>
+
+</div>
+
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+		</div>
+	</div>
+</section>
