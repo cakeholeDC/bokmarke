@@ -92,7 +92,7 @@ class Reader < ApplicationRecord
 			review.content.length
 		end
 		if self.reviews.length !=0
-			total / self.reviews.length
+			(total / self.reviews.length).round(2)
 		end
 	end
 
@@ -102,7 +102,7 @@ class Reader < ApplicationRecord
 		end
 
 		if self.reviews.length != 0
-			total.to_f / self.reviews.length
+			(total.to_f / self.reviews.length).round(2)
 		else
 			"No"
 		end

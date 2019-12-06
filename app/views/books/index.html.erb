@@ -1,6 +1,7 @@
 
 
 <!-- @TODO radios? default to title -->
+<p class="title level-item has-text-white-bis">Search Books</p>
 	<div class="container field has-addons has-addons-centered">
 		<p class="control">
 			<span class="select">
@@ -18,7 +19,7 @@
 		</p>
 	</div>
 	<br>
-	<div class="container level-item"><%= button_to "Random Book", book_path(Book.all.sample.id), method: "get", class: "button is-link " %></div>
+	<div class="container has-text-centered"><%= button_to "Random Book", book_path(Book.all.sample.id), method: "get", class: "button is-link " %></div>
 
 	<br>
 

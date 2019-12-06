@@ -6,11 +6,20 @@
 	    	</p>
 	    	<div class="content container">
 				<%= render partial: 'application/flash_error' %>
-				<%= form_tag readers_path, method: 'get' do %>
-					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag "Search" %>
-				<% end %>
-				<%= button_to "Random Reader", reader_path(Reader.all.sample), method: "get" %>
+					<div class="field has-addons-centered">
+						<div class="control">
+							<%= form_tag readers_path, method: 'get' do %>
+								<%= text_field_tag :search, params[:search], class: "input", id: "reader-search" %>
+								<div class="container has-text-centered">
+									<%= submit_tag "Search", class: "button is-success" %>
+								</div>
+							<% end %>
+							<div class="container has-text-centered">
+								<%= button_to "Random Reader", reader_path(Reader.all.sample), method: "get", class: "button" %>
+									
+							</div>
+						</div>
+					</div>
 			</div>
 	    	<div class="content container">
 				<ul>
@@ -22,3 +31,5 @@
 		</div>
 	</div>
 </div>
+
+	
