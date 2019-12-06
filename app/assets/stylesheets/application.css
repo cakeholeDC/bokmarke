@@ -29,7 +29,7 @@ ul {
 
 /*#test {
 	background-color: magenta;
-}*/\
+}*/
 /*nav .navbar {
 	border-bottom: black;
     border-bottom-style: solid;
@@ -39,3 +39,13 @@ ul {
 #home_logo {
 	margin-top: 10px;
 }
+
+.bg-img { 
+        background-image: url("bokmarke_background_grayscale.jpg");
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+        background-color: #999;
+
+ }

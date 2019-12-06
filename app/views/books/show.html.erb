@@ -35,7 +35,7 @@
 
 
 
-<% if session_user.can_add_to_reading_list?(@book)%>
+<% if is_logged_in? && session_user.can_add_to_reading_list?(@book)%>
 	<%= render partial:"goals/add_goal_form" %>
 
 	<% elsif is_logged_in? %>
@@ -45,7 +45,7 @@
 
 <a name="review" ></a>
 
-<% if session_user.can_review?(@book)%>
+<% if is_logged_in? && session_user.can_review?(@book)%>
 	<h3>Leave a Review </h3>
 	<%= render partial: 'application/error_notice', locals: { new_object: @review } %>
 	<%= render partial:'reviews/review_form', locals: {book: @book.id, goal: session_user.goal_by_book(@book).id, submit_text: "Submit Review"} %>
