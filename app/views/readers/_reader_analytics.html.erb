@@ -13,14 +13,6 @@
 			<td><%= @reader.bio %></td>
 		</tr>
 		<tr>
-			<td>Favorite Book:</td>
-			<td><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></td>
-		</tr>
-		<tr>
-			<td>Favorite Author:</td>
-			<td><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></td>
-		</tr>
-		<tr>
 			<td>Total Books Read:</td>
 			<td><%= @reader.read.count %></td>
 		</tr>

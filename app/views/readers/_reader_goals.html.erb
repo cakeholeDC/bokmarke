@@ -26,7 +26,9 @@
 					<% else %>
 						<%= button_to "Finished Book", update_status_path(goal), method: "patch", class: "tag is-link is-success" %>
 					<% end %>
+					<% if !goal.review %>
 					<%= button_to "Remove Book", goal_path(goal), method: "delete", class: "tag is-danger is-normal" %></td>
+					<% end %>
 			<% end %>
 		</tr>
 		<% end %>

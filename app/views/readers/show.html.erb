@@ -11,6 +11,19 @@
 				<%= button_to "Edit My Profile", edit_reader_path(@reader), method: 'get', class: "tag is-link is-medium level-right" %>
 				<%= button_to "Delete My Profile", reader_path(@reader), method: 'delete', class: "tag is-danger is-medium level-right" %>
 			<% end %>
+			<p>&nbsp;</p>
+			<table>
+				<tbody>
+					<tr>
+						<td>Favorite Book:</td>
+						<td><%= link_to @reader.display_fav_book_by_id, book_path(@reader.fav_book) %></td>
+					</tr>
+					<tr>
+						<td>Favorite Author:</td>
+						<td><%= link_to @reader.display_fav_author_by_id, author_path(@reader.fav_author) %></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
   	</div>
   </div>
@@ -32,6 +45,7 @@
 	<div class="tile is-ancestor container">
 		<div class="tile is-vertical is-parent">
 		    <div class="tile is-child box">
+		    	<a name="read-list" ></a>
 		    	<p class="title level-item">
 		    		Reading List:
 	    		</p>
