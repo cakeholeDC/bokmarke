@@ -54,7 +54,7 @@ class Book < ApplicationRecord
     end
 
     if self.reviews.length != 0
-      total / self.reviews.length
+      (total / self.reviews.length).round(2)
     else
       "No"
     end
