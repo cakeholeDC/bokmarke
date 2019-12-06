@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 		render :home
 	end
 
+	def about
+		# render :about
+	end
+
 	def login_required
 		if !session.include?(:username)
 			flash[:error] = "This page requires an account"

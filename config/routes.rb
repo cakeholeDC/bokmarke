@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :authors, only: [:index, :show]
   resources :readers
   get '/', to: 'application#home', as: 'home'
+  get '/about', to: 'application#about', as: 'about'
   patch '/goals/:id', to: 'goals#update_status', as: "update_status"
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
