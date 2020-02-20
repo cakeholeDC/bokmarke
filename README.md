@@ -1,24 +1,26 @@
-# README
+# Bökmarke
+Bökmarke is a book tracking Rails application. Search for books using the Google Books API and add them to your reading list. Once you've completed a book, leave a review for other users letting them know what you think. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+### Dependencies
+Before starting the rails server, run `bundle install` to ensure all dependencies are installed and up to date.
 
-* Ruby version
+### Database Setup
+To setup a local SQLite3 database, run the following commands in the project directory:
+### `rails db:create` && `rails db:migrate` 
 
-* System dependencies
+### Start Local Server
+To start the Bökmarke locally, run the following command in the project directory:
+### `rails s`
 
-* Configuration
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-* Database creation
+## Credits
+Hunger Swype was created by [Kyle P Cole](https://www.kylepcole.com/) and [Sara Tarnvik](https://github.com/stvik) ©2019 All rights reserved 
 
-* Database initialization
+## Licesne 
+MIT License - see LICENSE.md for full text
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Notes
+Ruby version '2.6.1'
