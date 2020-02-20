@@ -17,7 +17,7 @@ To start the Bökmarke locally, run the following command in the project directo
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Credits
-Hunger Swype was created by [Kyle P Cole](https://www.kylepcole.com/) and [Sara Tarnvik](https://github.com/stvik) ©2019 All rights reserved 
+Bökmarke was created by [Kyle P Cole](https://www.kylepcole.com/) and [Sara Tarnvik](https://github.com/stvik) ©2019 All rights reserved 
 
 ## Licesne 
 MIT License - see LICENSE.md for full text
